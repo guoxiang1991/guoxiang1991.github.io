@@ -86,18 +86,20 @@
         <h2 id="自定义指令"><a href="#自定义指令" class="headerlink" title="自定义指令"></a>自定义指令</h2><ul>
 <li>在 angular 中有很多的内置指令供我们使用；通过使用这些指令我们可以更加方便快捷的操作各种数据。但是仅仅这些内置的指令已经不能满足我们在开发中的需求了，我们想要更快更好的完成一些项目，我们就应该根据我们平时开发中的需求自己来添加一些自定义指令，这样可以是我们的开发效率更高。其实自定义指令就像以前我们为了实现某些功能而封装一些方法一样。</li>
 </ul>
-<h3 id="创建指令"><a href="#创建指令" class="headerlink" title="创建指令"></a>创建指令</h3><blockquote>
-<p>创建一个指令我们使用 myApp.directive() 这个方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    var myApp = angular.module(&apos;myApp&apos;, []);</div><div class="line">    myApp.directive(&apos;myInstructions&apos;,function()&#123;&#125;)</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
-</blockquote>
+<h3 id="创建指令"><a href="#创建指令" class="headerlink" title="创建指令"></a>创建指令</h3><ul>
+<li><p>创建一个指令我们使用 myApp.directive() 这个方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    var myApp = angular.module(&apos;myApp&apos;, []);</div><div class="line">    myApp.directive(&apos;myInstructions&apos;,function()&#123;&#125;)</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
 <ul>
 <li>和以往的操作一样，我们先要创建一个模块，一切从模块开始吗！</li>
 <li>然后我们使用 myApp.directive() 这个方法直接创建指令就好</li>
 <li>在我们自定义的指令中 myInstructions 是我们自定义的这个指令的名称，就好像内置指令中的 ng-model一样。但是我们要注意一点，我们在定义这个自定义指令的时候，指令名称要用驼峰式命名法来命名，而我们在使用我们定义好的这个指令的时候要把驼峰式命名法中的每个单词拆开，用‘-’连接，并且单词字母全部是小写。例如：我们定义一个指令的时候写为 ‘myInstructions’ ，而使用一个指令的时候要写成 ‘my-instructions’ 才可以，不然是不会成功的。</li>
 <li>定义指令以后我们需要的是后面函数中的返回值，返回值要是一个对象。</li>
 </ul>
-<h3 id="定义指令"><a href="#定义指令" class="headerlink" title="定义指令"></a>定义指令</h3><blockquote>
-<p>我们定义一个指令主要是在 function 中的 return 的对象上进行定义<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">var myApp = angular.module(&apos;myApp&apos;, []);</div><div class="line">myApp.directive(&apos;myInstructions&apos;,function()&#123;</div><div class="line">    return &#123;</div><div class="line">        template: &apos;&lt;div&gt;内容&lt;/div&gt;&apos;,</div><div class="line">        replace: true,</div><div class="line">        restrict: &apos;ECMA&apos;,</div><div class="line">        transclude:true,</div><div class="line">        scope:true,</div><div class="line">        link:function(scope,element,attrs)&#123;&#125;</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
-</blockquote>
+</li>
+</ul>
+<h3 id="定义指令"><a href="#定义指令" class="headerlink" title="定义指令"></a>定义指令</h3><ul>
+<li><p>我们定义一个指令主要是在 function 中的 return 的对象上进行定义</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">var myApp = angular.module(&apos;myApp&apos;, []);</div><div class="line">myApp.directive(&apos;myInstructions&apos;,function()&#123;</div><div class="line">    return &#123;</div><div class="line">        template: &apos;&lt;div&gt;内容&lt;/div&gt;&apos;,</div><div class="line">        replace: true,</div><div class="line">        restrict: &apos;ECMA&apos;,</div><div class="line">        transclude:true,</div><div class="line">        scope:true,</div><div class="line">        link:function(scope,element,attrs)&#123;&#125;</div><div class="line">    &#125;</div><div class="line">&#125;)</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
 <ul>
 <li>template：定义一个模版(指的是HTML结构)，定义好的结构模版会根据我们的操作显示在页面中</li>
 <li>replace：默认值为false，意思是会在页面中使用当前自定义指令的标签下新建 template 中定义的HTML结构，如果写 true 的意思是 template 中定义的HTML结构会直接覆盖掉使用当前自定义指令的标签。</li>
@@ -107,18 +109,17 @@
 <li>link：实现和DOM元素、作用域的连接(连接阶段)。这个也是最重要的一部分，我们自定义指令的目的就是在这个方法里实现一些任务以后，直接返回给DOM元素。例如：我们在这个 function 中放入一个 ‘拖拽’ 的方法，那么我们使用这个自定义指令的标签就会实现拖拽的功能，在这个 function 中的代码基本已经可以说是回归了 ‘原生JS’ 代码了。我们只需要用 ‘原生JS’ 的方法写就可以实现功能。当然，我们也可以使用 jQuery 来写，如果我们要使用jQuery写的话我们最好是通过 ‘script’ 标签把jQuery引入进来，因为我们的angular框架中只有轻量级的jQuery代码。<strong>在这里使用的时候要注意</strong>，我们这个函数内的三个形参，我们函数里写的方法要根据这三个形参来写。<br>scope    当前模版的作用域（如果当前没有自己形成的作用域的话会自动找父级）<br>element  当前指令所在的DOM元素，是一个jQuery对象<br>attrs    自定义指令所在元素上的属性存储在attrs对象中<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    var myApp = angular.module(&apos;myApp&apos;, []);</div><div class="line">    myApp.directive(&apos;myDrag&apos;, function () &#123;</div><div class="line">        return &#123;</div><div class="line">            link: function (scope, element, attrs) &#123;</div><div class="line">                element.on(&apos;mousedown&apos;, function (e) &#123;</div><div class="line">                    e.preventDefault();</div><div class="line">                    var disX = e.pageX - element[0].offsetLeft,</div><div class="line">                            disY = e.pageY - element[0].offsetTop;</div><div class="line">                    angular.element(document).on(&apos;mousemove&apos;, function (e) &#123;</div><div class="line">                        var curX = e.pageX - disX,</div><div class="line">                                curY = e.pageY - disY;</div><div class="line">                        element.css(&#123;</div><div class="line">                            left: curX + &apos;px&apos;,</div><div class="line">                            top: curY + &apos;px&apos;</div><div class="line">                        &#125;);</div><div class="line">                    &#125;);</div><div class="line">                    angular.element(document).on(&apos;mouseup&apos;, function () &#123;</div><div class="line">                        angular.element(document).off();</div><div class="line">                    &#125;);</div><div class="line">                &#125;);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<blockquote>
-<ul>
-<li>就像这样，我们可以直接在link这个function中写如一些方法，在页面中使用当前自定义指令以后，使用该自定义指令的标签就可以进行拖拽了。如果该标签没有写过CSS样式的话，不要忘了写CSS样式。</li>
+</li>
+<li><p>就像这样，我们可以直接在link这个function中写如一些方法，在页面中使用当前自定义指令以后，使用该自定义指令的标签就可以进行拖拽了。如果该标签没有写过CSS样式的话，不要忘了写CSS样式。</p>
+</li>
 </ul>
-</blockquote>
 <h3 id="使用指令"><a href="#使用指令" class="headerlink" title="使用指令"></a>使用指令</h3><blockquote>
 </blockquote>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/23/angular的自定义指令/" data-id="cis79bysz0000mso092qwp5zf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/23/angular的自定义指令/" data-id="cis79hvj100013wo05ixhz9pm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -152,7 +153,7 @@
       
         <h1 id="数组的常用方法"><a href="#数组的常用方法" class="headerlink" title="数组的常用方法"></a>数组的常用方法</h1><ol>
 <li>push<blockquote>
-<p>是把一个对象放入数组的末尾<br>在数组中 push 是一个很常用的方法</p>
+<p>是把一个对象放入数组的末尾<br>在数组中 push 是一个很常用的方法<br>ashdiuahfj bfjk fkj fuwh fjBFJBF JB JL bsv j md</p>
 </blockquote>
 </li>
 </ol>
@@ -160,7 +161,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/21/JS中的数组/" data-id="cis79byta0001mso0dzhzzzj8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/21/JS中的数组/" data-id="cis79hvio00003wo0o2xhimcl" class="article-share-link">Share</a>
       
       
     </footer>
@@ -205,7 +206,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/21/hello-world/" data-id="cis79byth0002mso0dfzhwcvr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/21/hello-world/" data-id="cis79hvj900023wo0i3548hht" class="article-share-link">Share</a>
       
       
     </footer>
