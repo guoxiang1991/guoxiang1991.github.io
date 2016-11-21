@@ -97,7 +97,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/21/HTML5/" data-id="civrp1ddn0000hoo0sbwfw7dn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/21/HTML5/" data-id="civrrpiff00003oo02ypud2z6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -186,7 +186,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/20/HTML5的语义化/" data-id="civrp1ddw0001hoo0a2v3lxte" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/20/HTML5的语义化/" data-id="civrrpig300023oo05a4zuqg9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -248,11 +248,35 @@
 <li><p>这样就可以做到只在不兼容HTML5的浏览器中进行声明，而兼容的浏览器则直接跳过，这样做即解决了兼容性问题，也进行了性能优化。</p>
 </li>
 </ul>
+<h2 id="微数据"><a href="#微数据" class="headerlink" title="微数据"></a>微数据</h2><ul>
+<li>微数据说白了就是一种对于权重的增加。比如我们在开发每一个网站的时候都会把这个网站的logo写在一个h1标签中，是为了增加权重，让爬虫在抓去的时候能够更好的抓到需要的东西，其实也就是为了语义性更强。</li>
+<li>而微数据就是在一个页面制作的时候，对于人物，事件和评论等一些内容，不仅要让用户在看的时候知道这个就是人物，那个就是评论，也需要让搜索引擎和一些辅助的设备知道，而现在的智能设备没有达到这种高度，就需要我们开发者使用一些特定的标签或者属性来达到想要的效果。所以说微数据就是为了方便机器识别而产生的东西。</li>
+<li><p>对于一个人物介绍来说，我们以前这样写：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;</div><div class="line">我是传智播客，我的个人首页是：</div><div class="line">&lt;a href=&quot;http://www.itcast.cn/&quot;&gt;www.itcast.cn&lt;/a&gt;</div><div class="line">我是全国最大的IT人才培训基地</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>而我们有微数据写的话，就是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;div itemscope itemtype=&quot;http://data-vocabulary.org/Person&quot;&gt;</div><div class="line">    我是&lt;span itemprop=&quot;name&quot;&gt;传智播客&lt;/span&gt;，我的个人首页是：</div><div class="line">    &lt;a href=&quot;http://www.itcast.cn/&quot; itemprop=&quot;url&quot;&gt;www.itcast.cn&lt;/a&gt;</div><div class="line">    我是&lt;span itemprop=&quot;title&quot;&gt;全国最大&lt;/span&gt;的，&lt;span itemprop=&quot;affiliation&quot;&gt;IT人才&lt;/span&gt;培训基地。</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>虽然这个看起来复杂了，HTML代码量确实增加则，但这是我们对于具体语义性增强的方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">itemscope  这个属性是让div这个标签成为了一个微数据项，而包含这个属性的标签和其所有的后代元素变成了一个整体。</div><div class="line">itemtype  后面的值是一个URL地址，这个地址是对所有的“itemprop”后面的值的含义的一个解释。</div><div class="line">itemprop=&quot;name&quot;  是指关键词的意思。</div><div class="line">。。。。。。</div></pre></td></tr></table></figure>
+</li>
+<li><p>这个在实际开发中，因为除了特定的环境下一般不使用，所以了解一下就可以了。</p>
+</li>
+</ul>
+<h2 id="WAI-ARIA"><a href="#WAI-ARIA" class="headerlink" title="WAI-ARIA"></a>WAI-ARIA</h2><ul>
+<li>WAI-ARIA是指无障碍的网页应用。主要是应用于网页的辅助阅读设备，比如屏幕阅读器。</li>
+<li><p>比如，在网页上有一个弹出框，我们普通人是可以一眼就看到，这是一个弹出框，但是对于盲人来说，怎么能知道这个是个弹出框呢：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div role=&quot;alertdialog&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>这样就是告诉了这些辅助设备，这个是一个弹出框。</p>
+</li>
+<li>这些还是使用的不太多的，所以了解一下就好。</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/19/HTML5的兼容性/" data-id="civrp1de10002hoo0eqs35j3z" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/19/HTML5的兼容性/" data-id="civrrpifv00013oo06pl8b67g" class="article-share-link">Share</a>
       
       
     </footer>
@@ -264,8 +288,8 @@
   
     <article id="post-angular的自定义指令" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/08/23/angular的自定义指令/" class="article-date">
-  <time datetime="2016-08-23T09:05:12.000Z" itemprop="datePublished">2016-08-23</time>
+    <a href="/2016/11/10/angular的自定义指令/" class="article-date">
+  <time datetime="2016-11-10T05:29:31.000Z" itemprop="datePublished">2016-11-10</time>
 </a>
     
   </div>
@@ -276,7 +300,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/23/angular的自定义指令/">angular的自定义指令</a>
+      <a class="article-title" href="/2016/11/10/angular的自定义指令/">angular的自定义指令</a>
     </h1>
   
 
@@ -343,7 +367,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/23/angular的自定义指令/" data-id="civrp1de50003hoo0dmhk784r" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/10/angular的自定义指令/" data-id="civrrpigu00043oo0shfz9l8t" class="article-share-link">Share</a>
       
       
     </footer>
@@ -388,7 +412,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/21/hello-world/" data-id="civrp1de70004hoo0jayigngw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/21/hello-world/" data-id="civrrpig900033oo0kx96eej6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -440,7 +464,7 @@
           </li>
         
           <li>
-            <a href="/2016/08/23/angular的自定义指令/">angular的自定义指令</a>
+            <a href="/2016/11/10/angular的自定义指令/">angular的自定义指令</a>
           </li>
         
           <li>
