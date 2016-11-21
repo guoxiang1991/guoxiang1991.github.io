@@ -61,6 +61,88 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-HTML5的语义化" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/21/HTML5的语义化/" class="article-date">
+  <time datetime="2016-11-21T04:44:49.000Z" itemprop="datePublished">2016-11-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/21/HTML5的语义化/">HTML5的语义化</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>既然HTML5中有很多新特性，下面我们就来一点点的认识一下。</li>
+</ul>
+<h2 id="HTML5中的新元素（语义化）"><a href="#HTML5中的新元素（语义化）" class="headerlink" title="HTML5中的新元素（语义化）"></a>HTML5中的新元素（语义化）</h2><ul>
+<li><p>HTML5中添加了很多新的元素，也就是标签。比如 article、footer、header、nav、section。这些也就仅仅只是一些标签而已，和我们以前接触的 div、p、span这些一样，仅仅是一个标签，没有任何的样式附加，只是为了增强语义化，为了便于搜索引擎和辅助设备更好的理解我们所编写的HTML。</p>
+<ul>
+<li><p>下面我们来看一下都有哪些新的元素：</p>
+<ul>
+<li><p>header（头部）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;header&gt; 我是一个头部 &lt;/header&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>footer（底部）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;footer&gt; 我是一个底部 &lt;/footer&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>nav（导航）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;nav&gt;我是一个导航&lt;/nav&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>……</p>
+</li>
+</ul>
+</li>
+<li>从本质上来说，他们于以前的div、span没有任何区别，只是语义性更强。</li>
+<li><p>对于我们传统的开发者，我们在布局的时候经常这样写</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;header&quot;&gt;</div><div class="line">      &lt;div class=&quot;nav&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div class=&quot;container&quot;&gt;</div><div class="line">      &lt;div class=&quot;article&quot;&gt;&lt;/div&gt;</div><div class="line">      &lt;div class=&quot;aside&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;div class=&quot;footer&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>这样写没有错误，也没有什么不好，但是我们没有硬性的规定每一个标签的class名，因为class名是每一个开发者根据子级的心意来写，所以大家就有可能不一样。<br>比如：有的人写成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;header&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>也有的人写成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;head&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p>因为没有规定的写法，写成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;top&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p>也是没有问题的。所以，我们的搜索引擎和辅助设备在抓取的时候就不能很好的分辨到底这个是什么。</p>
+<ul>
+<li>而HTML5中就给我们做了一个规定，把我们以前的class名变成了一个标签名来使用，这样就避免了大家书写时候的不一样，而搜索引擎和辅助设备在抓取的时候的可以直接根据标签名来分辨。</li>
+<li>所以说，我们原先写的<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;header&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>就等同于</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;header&gt; 我是一个头部 &lt;/header&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>我们在书写的时候尽量避免全局使用header、footer、aside等语义标签，这样容易让搜索引擎和辅助设备混淆。</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/11/21/HTML5的语义化/" data-id="civrm5d1w0001pso0oidtvjez" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-HTML5" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/11/21/HTML5/" class="article-date">
@@ -84,8 +166,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <ul>
-<li><p>通俗的讲，HTML5就是一个对于HTML的版本号而已，没有什么神奇的。但是，他又不仅仅只是一个版本号，他更重要的作用是指定了一系列的Web开发的标准，成为第一个将Web做为应用开发平台的HTML语言。</p>
-<h2 id="H5的新特性"><a href="#H5的新特性" class="headerlink" title="H5的新特性"></a>H5的新特性</h2><ol>
+<li>通俗的讲，HTML5就是一个对于HTML的版本号而已，没有什么神奇的。但是，他又不仅仅只是一个版本号，他更重要的作用是指定了一系列的Web开发的标准，成为第一个将Web做为应用开发平台的HTML语言。<h2 id="H5的新特性"><a href="#H5的新特性" class="headerlink" title="H5的新特性"></a>H5的新特性</h2><ol>
 <li>语义化更强–新的特殊内容元素，比如 article、footer、header、nav、section。</li>
 <li>新的表单控件，比如 calendar、date、time、email、url、search。</li>
 <li>用于媒介回放的 video 和 audio 元素。</li>
@@ -93,26 +174,12 @@
 <li>用于绘画的 canvas 元素。</li>
 </ol>
 </li>
-<li><p>既然HTML5中有很多新特性，下面我们就来一点点的认识一下。</p>
-<h2 id="HTML5中的新元素（语义化）"><a href="#HTML5中的新元素（语义化）" class="headerlink" title="HTML5中的新元素（语义化）"></a>HTML5中的新元素（语义化）</h2><ul>
-<li>HTML5中添加了很多新的元素，也就是标签。比如 article、footer、header、nav、section。这些也就仅仅只是一些标签而已，和我们以前接触的 div、p、span这些一样，仅仅是一个标签，没有任何的样式附加，只是为了增强语义化，为了便于搜索引擎和辅助设备更好的理解我们所编写的HTML。</li>
-<li><p>下面我们来看一下都有哪些新的元素：</p>
-<ul>
-<li><p>header（头部）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;header&gt; 我是一个头部 &lt;/header&gt;</div></pre></td></tr></table></figure>
-</li>
-<li><p>footer（底部）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;footer&gt; 我是一个底部 &lt;/footer&gt;</div></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-</li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/21/HTML5/" data-id="civrk2bw700006ko0i9waxu1c" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/21/HTML5/" data-id="civrm5d1l0000pso0tdteltqo" class="article-share-link">Share</a>
       
       
     </footer>
@@ -203,7 +270,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/23/angular的自定义指令/" data-id="civrk2bwg00016ko0baza9hfh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/23/angular的自定义指令/" data-id="civrm5d290003pso0i58h2kbk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -248,7 +315,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/21/hello-world/" data-id="civrk2bwl00026ko0ltkox3pd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/21/hello-world/" data-id="civrm5d260002pso028vd0o8p" class="article-share-link">Share</a>
       
       
     </footer>
@@ -286,6 +353,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/11/21/HTML5的语义化/">HTML5的语义化</a>
+          </li>
         
           <li>
             <a href="/2016/11/21/HTML5/">HTML5</a>
