@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>H5API-fileReader | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="H5的新增API中的fileReader
+这个是H5中的一个文件读取功能（因为多用于图片上传，所以后面写的内容都假设为我上传的是一个图片）。我们都知道input标签中当type=”file”的时候，我们可以选择本地的文件进行上传，这个时候我们选择的本地文件在页面上只能看到一个文件名，而没有办法看到真是的图片在网页上呈现的效果，我们只能点击上传以后在网页上看到效果，因为我们网页上给图片留的位置和尺寸">
+<meta property="og:type" content="article">
+<meta property="og:title" content="H5API-fileReader">
+<meta property="og:url" content="http://yoursite.com/2016/11/18/H5API-fileReader/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="H5的新增API中的fileReader
+这个是H5中的一个文件读取功能（因为多用于图片上传，所以后面写的内容都假设为我上传的是一个图片）。我们都知道input标签中当type=”file”的时候，我们可以选择本地的文件进行上传，这个时候我们选择的本地文件在页面上只能看到一个文件名，而没有办法看到真是的图片在网页上呈现的效果，我们只能点击上传以后在网页上看到效果，因为我们网页上给图片留的位置和尺寸">
+<meta property="og:updated_time" content="2016-11-24T15:17:40.836Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="H5API-fileReader">
+<meta name="twitter:description" content="H5的新增API中的fileReader
+这个是H5中的一个文件读取功能（因为多用于图片上传，所以后面写的内容都假设为我上传的是一个图片）。我们都知道input标签中当type=”file”的时候，我们可以选择本地的文件进行上传，这个时候我们选择的本地文件在页面上只能看到一个文件名，而没有办法看到真是的图片在网页上呈现的效果，我们只能点击上传以后在网页上看到效果，因为我们网页上给图片留的位置和尺寸">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-H5API-fileReader" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/18/H5API-fileReader/" class="article-date">
+  <time datetime="2016-11-18T14:00:00.000Z" itemprop="datePublished">2016-11-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      H5API-fileReader
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="H5的新增API中的fileReader"><a href="#H5的新增API中的fileReader" class="headerlink" title="H5的新增API中的fileReader"></a>H5的新增API中的fileReader</h2><ul>
+<li>这个是H5中的一个文件读取功能（因为多用于图片上传，所以后面写的内容都假设为我上传的是一个图片）。我们都知道input标签中当type=”file”的时候，我们可以选择本地的文件进行上传，这个时候我们选择的本地文件在页面上只能看到一个文件名，而没有办法看到真是的图片在网页上呈现的效果，我们只能点击上传以后在网页上看到效果，因为我们网页上给图片留的位置和尺寸（宽高）与我们本地图片的尺寸不一样，所以会进行一些缩放，或者图片有一部分是看不到的，一旦出现这样的情况，我们就要从新上传一张图片，等到上传了新的一张图片的时候，我们的浏览器时不会把之前已经上传的那张图片删除的，所以这样会导致服务器的压力越来越大，所以我们用现在这个文件读取功能来解决问题。就是我们在本地选中好图片以后，在上传之前我们制造一个和网页上预留的图片位置和尺寸一样大小的盒子来承载这张图片，让我们先预览一下这张图片进入到网页以后是一个什么样的可是效果，这样我们可以在上传之前在本地就预览好要上传图片在网页中的效果，可以避免多次上传才可以满意的情况，从而给服务器减少负荷，也使得我们的用户体验更佳。</li>
+<li>之前的文字可能太多了，不太愿意看完，没有关系，那个只是告诉我们他的应用场景和使用原因而已，接下来我们就具体学习一下。</li>
+<li></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/11/18/H5API-fileReader/" data-id="civwk5kjt000anoo0a1x8rtco" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/11/18/H5API-fullScreen/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Récent</strong>
+      <div class="article-nav-title">
+        
+          H5API-fullScreen
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/11/10/angular的自定义指令/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ancien</strong>
+      <div class="article-nav-title">angular的自定义指令</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Articles récents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/11/19/HTML5/">HTML5</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/19/HTML5的语义化/">HTML5的语义化</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/19/HTML5的兼容性/">HTML5的兼容性</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/19/HTML5的表单/">HTML5的表单</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/19/HTML5的多媒体/">HTML5的多媒体</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

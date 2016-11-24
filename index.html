@@ -48,9 +48,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -97,7 +97,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/19/HTML5/" data-id="civsu48ch0000jso06nce5foo" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/19/HTML5/" data-id="civwk5kin0001noo0g8pw7g73" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -186,7 +186,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/19/HTML5的语义化/" data-id="civsu48d00002jso0spqzq9hu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/19/HTML5的语义化/" data-id="civwk5kjj0007noo089w71odx" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -276,7 +276,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/19/HTML5的兼容性/" data-id="civsu48gl0007jso0bck5rr24" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/19/HTML5的兼容性/" data-id="civwk5kix0003noo0e5axc9w8" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -350,7 +350,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/19/HTML5的表单/" data-id="civsu48cs0001jso0cwomjas4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/19/HTML5的表单/" data-id="civwk5kj40005noo0i4vdme9k" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -422,7 +422,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/19/HTML5的多媒体/" data-id="civsu48da0004jso088ebfvy7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/19/HTML5的多媒体/" data-id="civwk5kj00004noo0d7zm6apk" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -504,7 +504,177 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/19/HTML5的DOM扩展/" data-id="civsu48d70003jso0n59dxhmh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/19/HTML5的DOM扩展/" data-id="civwk5kjq0009noo04ixluoiw" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-H5API-online" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/19/H5API-online/" class="article-date">
+  <time datetime="2016-11-18T16:00:00.000Z" itemprop="datePublished">2016-11-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/19/H5API-online/">H5API-online</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="H5的新增API中的online"><a href="#H5的新增API中的online" class="headerlink" title="H5的新增API中的online"></a>H5的新增API中的online</h2><ul>
+<li>我们都知道，我们所制作的网页是要到网络上来让大家看到的，那么既然他到了网络上，那么必然就存在有网和没网的情况。也就是我们所说的在线和离线的情况。</li>
+<li>所以说我们写的每一个页面在执行的时候，都应该知道是在线状态还是离线状态。</li>
+<li><p>这时H5就提供给了我们一个属性叫“onLine”,这个属性是在全局对象window上的navigator这个对象里。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">window.navigator.onLine</div></pre></td></tr></table></figure>
+</li>
+<li><p>这样调用来查看这个方法，返回的是一个布尔值，注意这里的“onLine”中“L”要是大写的。</p>
+</li>
+<li>也就是说当我们有网，也就是处在在线状态的时候，这个值为“true”，否则为“false”。</li>
+<li><p>既然我们能知道当前的网络状态，那么我们就一定可以根据这些网络状态来做一些事情的。这时H5就给我们提供了这样的一个方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">window.addEventListener(&apos;online&apos;,function()&#123;&#125;)</div><div class="line">window.addEventListener(&apos;offline&apos;,function()&#123;&#125;)</div></pre></td></tr></table></figure>
+</li>
+<li><p>这两个方法也是全局对象上的方法，“online”是在线触发，而“offline”是离线触发。这里需要注意，这里的“online”中“l”是小写的。</p>
+</li>
+<li>这里有一个特别要注意的地方就是：这两个方法的触发一定是<strong>由在线变成离线，或者由离线变成在线</strong>，这种改变状态的情况下才会触发。</li>
+<li>比如说我们现在有网，这个时候我们访问一个绑定里“online”事件的网页时，这个事件是不会触发的，只有在我们访问网页时是离线状态，然后右离线状态改变成在线状态时才会触发这个绑定好的“online”事件。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/11/19/H5API-online/" data-id="civwk5kis0002noo05ytj9den" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-H5API-fullScreen" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/18/H5API-fullScreen/" class="article-date">
+  <time datetime="2016-11-18T15:00:00.000Z" itemprop="datePublished">2016-11-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/18/H5API-fullScreen/">H5API-fullScreen</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="H5的新增API中的fullScreen"><a href="#H5的新增API中的fullScreen" class="headerlink" title="H5的新增API中的fullScreen"></a>H5的新增API中的fullScreen</h2><ul>
+<li>这个是全屏的意思，其实就很明显了，就是把一个元素让其在全屏显示，即充满屏幕。</li>
+<li>在H5的规范中，是允许我们把网页上任意一个元素进行全屏显示的。</li>
+<li><p>这里H5给我们提供了两个方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">obj.requestFullScreen();  让obj这个元素全屏显示</div><div class="line">obj.cancelFullScreen();  让obj这个元素关闭全屏显示</div></pre></td></tr></table></figure>
+</li>
+<li><p>我们可以让任意一个元素调用这两个方法就可以实现这个元素的全屏显示和关闭全屏显示。</p>
+</li>
+<li><p>在这里我们还有个小问题就是因为这个方法的兼容性问题，我们需要根据浏览器的内核的不同在前面加一些不同的前缀</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">obj.webkitRequestFullScreen(); obj.webkitRequestFullScreen();;  这个是属于webkit内核浏览器（谷歌）</div><div class="line">obj.mozRequestFullScreen(); obj.mozCancelFullScreen();  这个是属于Gecko内核浏览器（火狐）</div></pre></td></tr></table></figure>
+</li>
+<li><p>这里有一个小问题，就是不管是什么元素开启的全屏显示，我们在关闭的时候都把前面的“obj”写成“document”，换句话说，这个方法只能用“document”来调用，例如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">oBox.webkitRequestFullScreen();  这个是让oBox这个元素进行全屏显示</div><div class="line">document.webkitRequestFullScreen();  这个就是让其关闭全屏显示</div></pre></td></tr></table></figure>
+</li>
+<li><p>所以我们在执行这个方法之前要进行浏览器的判定。</p>
+</li>
+<li><p>既然说了是任意一个元素都可以进行全屏显示，当然document也是可以的，但是写法有一点点不一样</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">document.documentElement.webkitRequestFullScreen();  这个是让document开启全屏</div><div class="line">document.webkitCancelFullScreen();  让document关闭全屏显示</div></pre></td></tr></table></figure>
+</li>
+<li><p>都有了开启全屏和关闭全屏的方法，那么肯定少不了检测当前是否处于全屏状态了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">document.fullScreen;</div></pre></td></tr></table></figure>
+</li>
+<li><p>这个就是检测全屏的方法，也是只有靠“document”才能调用，因为他是document这个对象上的一个属性。</p>
+</li>
+<li><p>注意的是这个也是有兼容性问题的，对于不同内核的浏览器要使用不同的前缀</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">document.webkitIsFullScreen; 这个是属于webkit内核浏览器（谷歌）</div><div class="line">document.mozFullScreen; 这个是属于Gecko内核浏览器（火狐）</div></pre></td></tr></table></figure>
+</li>
+<li><p>这里需要注意两点，首先因为这个是document上的属性而不是方法，所以后面不用加“()”，第二个就是“webkit内核浏览器（谷歌）”的前缀比“Gecko内核浏览器（火狐）”的前缀多了一个“is”。</p>
+</li>
+<li><p>这里顺带说一个属于全屏的伪类，实在我们写CSS样式的时候使用的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">:full-screen &#123;&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>这个伪类的意思是当前方元素属于开启全屏状态的时候给其添加上这里的CSS样式。</p>
+</li>
+<li><p>当然这个也是有兼容性问题的，和之前的一样，根据不同的浏览器内核来添加不同的前缀</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;style&gt;</div><div class="line">    .box:-webkit-full-screen &#123;&#125;  这个是属于webkit内核浏览器（谷歌）</div><div class="line">    .box:-moz-full-screen &#123;&#125;  这个是属于Gecko内核浏览器（火狐）</div><div class="line">&lt;/style&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>这个里面写的样式只有当“.box”这个元素处于全屏的时候才有效，关闭全屏模式以后就失效了。</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/11/18/H5API-fullScreen/" data-id="civwk5kie0000noo0ilwtbi4c" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-H5API-fileReader" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/18/H5API-fileReader/" class="article-date">
+  <time datetime="2016-11-18T14:00:00.000Z" itemprop="datePublished">2016-11-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/18/H5API-fileReader/">H5API-fileReader</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="H5的新增API中的fileReader"><a href="#H5的新增API中的fileReader" class="headerlink" title="H5的新增API中的fileReader"></a>H5的新增API中的fileReader</h2><ul>
+<li>这个是H5中的一个文件读取功能（因为多用于图片上传，所以后面写的内容都假设为我上传的是一个图片）。我们都知道input标签中当type=”file”的时候，我们可以选择本地的文件进行上传，这个时候我们选择的本地文件在页面上只能看到一个文件名，而没有办法看到真是的图片在网页上呈现的效果，我们只能点击上传以后在网页上看到效果，因为我们网页上给图片留的位置和尺寸（宽高）与我们本地图片的尺寸不一样，所以会进行一些缩放，或者图片有一部分是看不到的，一旦出现这样的情况，我们就要从新上传一张图片，等到上传了新的一张图片的时候，我们的浏览器时不会把之前已经上传的那张图片删除的，所以这样会导致服务器的压力越来越大，所以我们用现在这个文件读取功能来解决问题。就是我们在本地选中好图片以后，在上传之前我们制造一个和网页上预留的图片位置和尺寸一样大小的盒子来承载这张图片，让我们先预览一下这张图片进入到网页以后是一个什么样的可是效果，这样我们可以在上传之前在本地就预览好要上传图片在网页中的效果，可以避免多次上传才可以满意的情况，从而给服务器减少负荷，也使得我们的用户体验更佳。</li>
+<li>之前的文字可能太多了，不太愿意看完，没有关系，那个只是告诉我们他的应用场景和使用原因而已，接下来我们就具体学习一下。</li>
+<li></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/11/18/H5API-fileReader/" data-id="civwk5kjt000anoo0a1x8rtco" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -595,52 +765,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/10/angular的自定义指令/" data-id="civsu48g50006jso0koedqfti" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/08/21/hello-world/" class="article-date">
-  <time datetime="2016-08-21T01:48:09.411Z" itemprop="datePublished">2016-08-21</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/21/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/21/hello-world/" data-id="civsu48eg0005jso0mhp1jozw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/10/angular的自定义指令/" data-id="civwk5kjg0006noo0djkq9l8b" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -651,6 +776,10 @@
 
   
 
+
+  <nav id="page-nav">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">__('next') &raquo;</a>
+  </nav>
 </section>
         
           <aside id="sidebar">
@@ -675,7 +804,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
         
@@ -712,7 +841,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2016 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
