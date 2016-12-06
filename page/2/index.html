@@ -61,6 +61,277 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-H5API-geolocation" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/18/H5API-geolocation/" class="article-date">
+  <time datetime="2016-11-18T12:00:00.000Z" itemprop="datePublished">2016-11-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/18/H5API-geolocation/">H5API-geolocation</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="H5的新增API中的geolocation"><a href="#H5的新增API中的geolocation" class="headerlink" title="H5的新增API中的geolocation"></a>H5的新增API中的geolocation</h2><ul>
+<li>这个地理定位在移动端经常用于导航，PC端一样，也是用于地图上，比如我们的百度地图中。</li>
+<li>因为这个API我们没有办法自己制作，所以说我们只要去百度开放的接口直接使用就好了。</li>
+<li>不管我们用在移动端还是PC端，我们要做的第一件事都是进行定位，只有知道当前使用设备的准确位置，才可以进行下一步操作。</li>
+<li><p>这里H5给我们提供了两个方法，用来让我们获取用户的位置信息。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">window.navigator.geolocation.getCurrentPosition(successCallback, errorCallback, options)</div><div class="line">window.navigator.geolocation.watchPosition(successCallback, errorCallback, options)</div></pre></td></tr></table></figure>
+</li>
+<li><p>这两个方法就是我们获取用户位置信息的方法，当然一定是要在用户点击同意以后才可以获取，不然的话是获取不到的。</p>
+</li>
+<li><p>这两个方法都是全局对象window下的navigator下的geolocation下的方法，我们调用的时候要写全，但是navigator这个对象因为实在全局对象下的，所以window可以省略，但是建议写上window，只是一种严谨的书写模式，当然不写也没事。</p>
+<ul>
+<li>getCurrentPosition() 是获取当前用户的位置信息。（只获取一次信息用在我们进行定位的时候）</li>
+<li>watchPosition() 是重复获取当前用户信息。（随着你设置的重复获取间隔事件来获取位置信息，比如导航的时候）</li>
+<li>两个方法后面分别有三个参数<ul>
+<li>successCallback 是获取位置信息成功以后的回调函数</li>
+<li>errorCallback 是获取位置信息失败以后的回调函数</li>
+<li>options 是配置参数（这个参数在我们不需要使用的时候是可以不写的，他是一个对象，叫做对象传参，一般用作配置使用，这里知道怎么使用就行，后期讲ajax的时候封装一个ajax方法的时候就会学到了。）</li>
+</ul>
+</li>
+<li>这里我们就知道一下他的使用方法就好了，没必要纠结<ul>
+<li>他里面可以配置三个参数值</li>
+</ul>
+<ol>
+<li>enableHighAccuracy 高精度模式（就是指我们获取位置的时候要不要启用高精度模式）</li>
+<li>timeout 设置一个超时时间（就是拟规定一个时间，在这个时间内不能获取位置信息就中断，注意单位是“ms”）</li>
+<li>maximumAge 浏览器重新获取位置的时间间隔（一般用在重复获取的时候设置，注意单位也是“ms”）</li>
+</ol>
+</li>
+<li>这两个方法不管使用哪个，在当前浏览器第一次使用的时候，他都会自动询问用户是否允许，浏览器会记下你是否允许然后进行后续的操作。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">window.navigator.geolocation.getCurrentPosition(function(options)&#123;</div><div class="line">    console.log(options)</div><div class="line">&#125;, function(err)&#123;</div><div class="line">    console.log(err)</div><div class="line">&#125;, options)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>这就是具体的使用方法就是这样，当然“watchPosition()”方法在使用的时候和“getCurrentPosition()”是一样的。</p>
+</li>
+<li>在成功回调里出现的“options”和失败回调里出现的“err”都是函数执行是自动传给我们的一个参数，就和我们的事件对象“event”是一样的道理。<ul>
+<li>options 里面存储的是我们所获得的位置信息</li>
+<li>err 里面存储的是我们失败的原因</li>
+</ul>
+</li>
+<li>这里一般我们不会成功，因为在我们国内是受到了限制，是不允许我们得到位置信息的，所以实验时我们一定会进入错误回调。</li>
+<li>开发中我们是不会遇到这个问题的，因为人家有授权，而我们没有。</li>
+<li><p>假设现在我们成功了，我们就能得到一个“options”，而options下面会有一个coords的对象，这个对象上就存在了几个我们需要用的到属性</p>
+<ul>
+<li>latitude 纬度</li>
+<li>longitude 经度</li>
+<li>accuracy 精确度（就是指我们得到的位置信息大概在一个什么范围内）</li>
+<li>altitude 海拔高度<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var lat = options.coords.latitude;  //-&gt; 得到当前位置的纬度</div><div class="line">var lon = options.coords.longitude; //-&gt; 得到当前位置的经度</div><div class="line">var acc = options.coords.accuracy; //-&gt; 得到当前位置的精确度</div><div class="line">var alt = options.coords.altitude; //-&gt; 得到当前位置的海拔高度</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>这段代码放在成功的回调里执行，我们就会得到对应的我们需要的位置信息</p>
+</li>
+<li>因为我们没法自己制作一张准确的地图，所以我们就使用百度的接口进行下面的操作就好了，我们自己需要做到的就是获取一下当前的位置信息。</li>
+<li>下面我们来解释一下百度接口的使用。<ol>
+<li>首先我们打开<a href="http://developer.baidu.com/map/reference/" target="_blank" rel="external">百度地图第三方API</a></li>
+<li>点击导航栏里的“javaScript API”就行</li>
+<li>点击左侧侧边栏的“开发指南”，然后选择“Hello World”就好</li>
+<li>里面会有实例告诉我们具体怎么操作，按照他的实例我们自己写就行了。</li>
+</ol>
+</li>
+<li><p>再来写一下我们具体怎么写</p>
+<ol>
+<li><p>引入百度规定好的JS文件“<a href="http://api.map.baidu.com/api?v=2.0&amp;ak=你的密钥”" target="_blank" rel="external">http://api.map.baidu.com/api?v=2.0&amp;ak=你的密钥”</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;body&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;http://api.map.baidu.com/api?v=2.0&amp;ak=G5risP5FdnZZOB2QeV7kMyGnVESTXb4z&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>创建一个获取位置信息的函数，书写是尽量把回到函数写在外面，代码的可读性更高，培养一个良好的书写习惯</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;body&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;http://api.map.baidu.com/api?v=2.0&amp;ak=G5risP5FdnZZOB2QeV7kMyGnVESTXb4z&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    function success(position) &#123;&#125;</div><div class="line">    function error(error) &#123;&#125;</div><div class="line">    var options = &#123;&#125;</div><div class="line">    window.navigator.geolocation.getCurrentPosition(success,error,options)</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>咱们就直接在成功的回调函数“success”下继续咱们的操作就可以了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function success(position) &#123;</div><div class="line">    var lat = options.coords.latitude;  //-&gt; 按照我们之前的方法获取纬度</div><div class="line">    var lon = options.coords.longitude;  //-&gt; 按照我们之前的方法获取经度</div><div class="line">    var map = new BMap.Map(&quot;box&quot;)  //-&gt; box就是我们想让地图显示在什么位置就写什么</div><div class="line">    var point = new BMap.Point(&quot;经度&quot;,&quot;纬度&quot;)  //-&gt; 创建我们之前得到的经纬度坐标（也可以自己写两个坐标）</div><div class="line">    map.centerAndZoom(point, 15);  //-&gt; 调用centerAndZoom()方法就可以</div><div class="line">    var marker = new BMap.Marker(point);  //-&gt; 创建一个覆盖物，并且设置出现在哪个坐标点</div><div class="line">    map.addOverlay(marker);  //-&gt; 让覆盖物出现在地图上</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>这样我们就能获取到位置信息后在地图上反映出来</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/11/18/H5API-geolocation/" data-id="ciwcxdrb0000akoo01nsm8as2" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-H5API-history" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/18/H5API-history/" class="article-date">
+  <time datetime="2016-11-18T11:00:00.000Z" itemprop="datePublished">2016-11-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/18/H5API-history/">H5API-history</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="H5的新增API中的history"><a href="#H5的新增API中的history" class="headerlink" title="H5的新增API中的history"></a>H5的新增API中的history</h2><ul>
+<li>是在我们的历史区添加一些记录，使我们的页面可以在历史区暂存，也可以让已经存在历史区的页面被替换掉，这样我们点击回退的时候就不会回到我们刚才来的那个网页，而是会回到我们替换好的另一个网页。</li>
+<li>其实历史区和我们的数组很像，所以我们记忆的时候只要类比着数组记忆就可以。（目前我们只要记住两个方法一个事件就可以）</li>
+<li><p>第一个是pushState()方法。是向我们的历史区中追加一条记录。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">history.pushState(&#123;&#125;,&quot;&quot;,&quot;/demo.html&quot;);</div><div class="line">//-&gt; 第一个参数是一个对象，在添加历史的时候设置一些数据，不过一般没用，可以写个空对象，也可以写null</div><div class="line">//-&gt; 第二个参数是标题，不过一般不会生效，没什么意义，就写一个空字符串就好。</div><div class="line">//-&gt; 第三个参数是我们要追加的地址，填写一个地址就好</div></pre></td></tr></table></figure>
+</li>
+<li><p>一般来说这个方法都是绑定在某个事件中，基本不会直接调用。其实和数组中的push方法一样。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">比如我们有一个数组（历史区）：</div><div class="line">[]</div><div class="line">当我们打开页面的时候我们的历史区内就有了一个历史记录</div><div class="line">[&quot;当前html页面&quot;]</div><div class="line">当我们使用这个方法追加记录的时候，其实就是在历史区的最后面添加一条记录。</div><div class="line">[&quot;当前html页面&quot;,&quot;我们追加的html页面&quot;]</div><div class="line">当然也可以在继续追加，这样当我们回退的时候就会按照从后往前的机制逐一回退。</div><div class="line">这里要注意，当我们追加完历史记录以后，我们地址栏的地址会自动变成我们追加的那个地址。</div></pre></td></tr></table></figure>
+</li>
+<li><p>第二个方法是replaceState()方法，是替换掉当前的历史记录，而不是在后面追加了，使用方法和之前的pushState()一样。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">history.replaceState(&#123;&#125;,&quot;&quot;,&quot;/demo.html&quot;);</div><div class="line">//-&gt; 第一个参数是一个对象，在添加历史的时候设置一些数据，不过一般没用，可以写个空对象，也可以写null</div><div class="line">//-&gt; 第二个参数是标题，不过一般不会生效，没什么意义，就写一个空字符串就好。</div><div class="line">//-&gt; 第三个参数是我们要追加的地址，填写一个地址就好</div></pre></td></tr></table></figure>
+</li>
+<li><p>这个也是绑定在某个事件中，基本不会直接调用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">比如我们有一个数组（历史区）：</div><div class="line">[]</div><div class="line">当我们打开页面的时候我们的历史区内就有了一个历史记录</div><div class="line">[&quot;当前html页面&quot;]</div><div class="line">当我们使用这个方法替换记录的时候，其实就是把历史区的当前记录替换掉。</div><div class="line">[&quot;我们替换的html页面&quot;]</div><div class="line">这样当我们回退的时候因为历史区里没有之前的那个页面地址了，我们就不会回到之前的那个页面，而是会按照现在历史区里的顺序从后往前逐一回退。</div><div class="line">这里要注意，当我们替换完历史记录以后，我们地址栏的地址会自动变成我们替换的那个地址。</div></pre></td></tr></table></figure>
+</li>
+<li><p>这就是我们的两个方法，很好用，也很方便实用，但是要记得方法调用一定是通过history调用。</p>
+</li>
+<li>接下来我们就说一下事件，onpopstate事件。是在历史区发生改变后，并且我们操作历史区的时候才会触发。</li>
+<li><p>这个事件是window下的事件，所以一定要写成window.onpopstate。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">window.onpopstate = function (state) &#123;&#125;;</div><div class="line">//-&gt; 这里我们传递的参数state是内置传参，我们只需要用一个形参接受就好，就像我们以前学过的事件对象event一样。</div><div class="line">//-&gt; 这个state下有一个state属性，存的就是我们之前在添加历史记录和替换历史记录的时候的第一个参数&#123;&#125;里面写的东西。</div><div class="line">window.onpopstate = function (state) &#123;</div><div class="line">    console.log(state)</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+</li>
+<li><p>这里一定要注意，我们触发这个事件一定要满足两个条件，一是我们的历史区发生了改变，二是改变后我们操作历史区的时候。</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/11/18/H5API-history/" data-id="ciwcxdr9o0001koo036in9l3w" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-H5API-storage" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/18/H5API-storage/" class="article-date">
+  <time datetime="2016-11-18T10:00:00.000Z" itemprop="datePublished">2016-11-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/18/H5API-storage/">H5API-storage</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="H5的新增API中的storage"><a href="#H5的新增API中的storage" class="headerlink" title="H5的新增API中的storage"></a>H5的新增API中的storage</h2><ul>
+<li>storage是我们的WEB存储，分为localStorage和sessionStorage两种，和我们以前的cookie相比，这两种存储机制更强大，设置和读取都比以前方便很多，存储容量也变的更大。</li>
+<li>localStorage： 大约可存储5M的内容，浏览器窗口关闭则这里存储的内容消失，只能存储字符串。</li>
+<li>sessionStorage： 大约可存储20M的内容，是永久存储，不会随着浏览器的关闭而消失，除非手动删除，只能存储字符串。</li>
+<li>因为只能存储字符串，所以我们要存储对象的时候要将对象通过JSON.stringify()编码后存储。</li>
+<li><p>他们的方法都是一样的，也就是说我们用谁调用就存在谁的名下了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">window.localStorage.setItem(key,value);</div><div class="line">//-&gt; 设置内容，将以键值对的形式存储在localStorage名下，如果其名下有key这个属性名那么就是更改，否则就是设置</div><div class="line">window.localStorage.getItem(key);</div><div class="line">//-&gt; 获取内容，通过这个方法来获取localStorage名下的key对应的值。</div><div class="line">window.localStorage.removeItem(key);</div><div class="line">//-&gt; 删除内容，通过这个方法来删除localStorage名下的key属性。</div><div class="line">window.localStorage.clear();</div><div class="line">//-&gt; 清空内容，通过这个方法来清空localStorage名下的所有存储的内容。</div><div class="line">window.localStorage.key(0);</div><div class="line">//-&gt; 获取内容，通过这个方法来获取localStorage名下的索引为0的那一项的属性名（也就是key）。</div></pre></td></tr></table></figure>
+</li>
+<li><p>sessionStorage和localStorage的方法是一样的，只不过是用sessionStorage来调用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">window.sessionStorage.setItem(key,value);</div><div class="line">//-&gt; 设置内容，将以键值对的形式存储在sessionStorage名下，如果其名下有key这个属性名那么就是更改，否则就是设置</div><div class="line">window.sessionStorage.getItem(key);</div><div class="line">//-&gt; 获取内容，通过这个方法来获取sessionStorage名下的key对应的值。</div><div class="line">window.sessionStorage.removeItem(key);</div><div class="line">//-&gt; 删除内容，通过这个方法来删除sessionStorage名下的key属性。</div><div class="line">window.sessionStorage.clear();</div><div class="line">//-&gt; 清空内容，通过这个方法来清空sessionStorage名下的所有存储的内容。</div><div class="line">window.sessionStorage.key(0);</div><div class="line">//-&gt; 获取内容，通过这个方法来获取sessionStorage名下的索引为0的那一项的属性名（也就是key）。</div></pre></td></tr></table></figure>
+</li>
+<li><p>其实我们就把他当成一个普通对象看待就好了，就像我们操作一个普通对象一样简单。</p>
+</li>
+<li>我们只要注意sessionStorage的生命周期是浏览器窗口关闭后消失，而localStorage则是永久有效，除非手动删除就好了。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/11/18/H5API-storage/" data-id="ciwcxdra60004koo0by1ycyj3" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-H5API-appcache" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/18/H5API-appcache/" class="article-date">
+  <time datetime="2016-11-18T09:00:00.000Z" itemprop="datePublished">2016-11-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/18/H5API-appcache/">H5API-appcache</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="H5的新增API中的appCache"><a href="#H5的新增API中的appCache" class="headerlink" title="H5的新增API中的appCache"></a>H5的新增API中的appCache</h2><ul>
+<li>应用缓存是让我们构建一个离线应用，也就是说，当用户浏览网页后，根据我们的需求，让一些文件在客户的本地缓存下来，这样在用户没有网的情况下也可以看到一下内容。同时，每次刷新的时候有一些文件我们只要让其读取缓存中的内容就可以，而不用从新请求，这样就大大的节约了用户的流量使用，同时因为是调取的本地缓存中的内容，访问的速度也会大大的得到提升。</li>
+<li>这里的操作我们只需要创建一个后缀名为“appcache”的txt文件即可。</li>
+<li>我们要做的第一步就是创建一个txt文件，把后缀名改成“appcache”即可。（为了讲解我创建了一个demo.appcache）</li>
+<li>接下来我们要在需要应用缓存在页面的“根元素”（也就是html标签中）添加一个“manifest=”./demo.appcache””，这里一定要确保路径的正确，这样就可以了。接下来我们就是去配置我们需要缓存的东西了。</li>
+<li><p>demo.appcache文档的书写格式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">CACHE MANIFEST</div><div class="line">//-&gt; 文档打开，顶行一定要写这一行，写完换行就好，注意没有任何标点符号。</div><div class="line">#version 2.5.0</div><div class="line">//-&gt; 这个是一个版本号，使我们自己编的，当然也可以不写。</div><div class="line">//-&gt; 开发者一般都会写一个这个版本号，每次我修改完配置文件以后都会对版本号做出一些修改。</div><div class="line">CACHE:</div><div class="line">//-&gt; 接下来我们就写一个“CACHE”，注意后面要写“:”。</div><div class="line">//-&gt; 这个下面写的就是我们要缓存的资源，注意路径要正确。</div><div class="line">./images/img1.jpg</div><div class="line">./images/img2.jpg</div><div class="line">./images/img3.jpg</div><div class="line">./images/img4.jpg</div><div class="line">./images/img5.jpg</div><div class="line">//-&gt; 这些缓存的资源我们写多少个都是可以的，但是一般根据需求来写就好。</div><div class="line">NETWORK:</div><div class="line">//-&gt; 接下来写“NETWORK”，注意后面要写“:”。</div><div class="line">//-&gt; 这个下面写的资源是当我们每次刷新的时候都要从新请求的文件。</div><div class="line">./css/main.css</div><div class="line">//-&gt; 这里一般都是写一些类似于和价格、新闻标题等需要我们实时更新的内容。</div><div class="line">FALLBACK:</div><div class="line">//-&gt; 接下来写“FALLBACK”，注意后面要写“:”。</div><div class="line">//-&gt; 这里写的是我们的备用资源，也就是说在请求的时候，如果前面一个资源找不到了，就用后面这个资源来代替。</div><div class="line">./css/online.css ./css/offline.css</div><div class="line">//-&gt; 注意两个资源文件中间与空格。</div><div class="line">//-&gt; 还有一点要注意的就是我们写在后面的这个备用资源会被自动缓存，所以就不用在前面缓存内容那里单独写了。</div></pre></td></tr></table></figure>
+</li>
+<li><p>只要这样配置完这个demo.appcache文档，并且在页面的“html”标签中填写了“manifest=”./demo.appcache””，我们就可以实现缓存了，这样在没有网的状态下我们就可以浏览到网页的一些内容了。</p>
+</li>
+<li>在chrome浏览器下我们可以通过 <a href="chrome://appcache-internals/" target="_blank" rel="external">缓存调试</a>来查看我们的缓存内容。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/11/18/H5API-appcache/" data-id="ciwcxdr9b0000koo0y5pmhxyq" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-angular的自定义指令" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/11/10/angular的自定义指令/" class="article-date">
@@ -142,7 +413,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/10/angular的自定义指令/" data-id="civxaibyx000aqso01keefkhy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/10/angular的自定义指令/" data-id="ciwcxdrc2000fkoo0yqo2fxj2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -187,7 +458,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/21/hello-world/" data-id="civxaibz1000bqso0sj0rxhcc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/21/hello-world/" data-id="ciwcxdrbc000ckoo09aaysa7k" class="article-share-link">Share</a>
       
       
     </footer>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>H5API-geolocation | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="H5的新增API中的geolocation
+这个地理定位在移动端经常用于导航，PC端一样，也是用于地图上，比如我们的百度地图中。
+因为这个API我们没有办法自己制作，所以说我们只要去百度开放的接口直接使用就好了。
+不管我们用在移动端还是PC端，我们要做的第一件事都是进行定位，只有知道当前使用设备的准确位置，才可以进行下一步操作。
+这里H5给我们提供了两个方法，用来让我们获取用户的位置信息。
+12w">
+<meta property="og:type" content="article">
+<meta property="og:title" content="H5API-geolocation">
+<meta property="og:url" content="http://yoursite.com/2016/11/18/H5API-geolocation/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="H5的新增API中的geolocation
+这个地理定位在移动端经常用于导航，PC端一样，也是用于地图上，比如我们的百度地图中。
+因为这个API我们没有办法自己制作，所以说我们只要去百度开放的接口直接使用就好了。
+不管我们用在移动端还是PC端，我们要做的第一件事都是进行定位，只有知道当前使用设备的准确位置，才可以进行下一步操作。
+这里H5给我们提供了两个方法，用来让我们获取用户的位置信息。
+12w">
+<meta property="og:updated_time" content="2016-11-25T07:00:30.659Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="H5API-geolocation">
+<meta name="twitter:description" content="H5的新增API中的geolocation
+这个地理定位在移动端经常用于导航，PC端一样，也是用于地图上，比如我们的百度地图中。
+因为这个API我们没有办法自己制作，所以说我们只要去百度开放的接口直接使用就好了。
+不管我们用在移动端还是PC端，我们要做的第一件事都是进行定位，只有知道当前使用设备的准确位置，才可以进行下一步操作。
+这里H5给我们提供了两个方法，用来让我们获取用户的位置信息。
+12w">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-H5API-geolocation" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/18/H5API-geolocation/" class="article-date">
+  <time datetime="2016-11-18T12:00:00.000Z" itemprop="datePublished">2016-11-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      H5API-geolocation
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="H5的新增API中的geolocation"><a href="#H5的新增API中的geolocation" class="headerlink" title="H5的新增API中的geolocation"></a>H5的新增API中的geolocation</h2><ul>
+<li>这个地理定位在移动端经常用于导航，PC端一样，也是用于地图上，比如我们的百度地图中。</li>
+<li>因为这个API我们没有办法自己制作，所以说我们只要去百度开放的接口直接使用就好了。</li>
+<li>不管我们用在移动端还是PC端，我们要做的第一件事都是进行定位，只有知道当前使用设备的准确位置，才可以进行下一步操作。</li>
+<li><p>这里H5给我们提供了两个方法，用来让我们获取用户的位置信息。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">window.navigator.geolocation.getCurrentPosition(successCallback, errorCallback, options)</div><div class="line">window.navigator.geolocation.watchPosition(successCallback, errorCallback, options)</div></pre></td></tr></table></figure>
+</li>
+<li><p>这两个方法就是我们获取用户位置信息的方法，当然一定是要在用户点击同意以后才可以获取，不然的话是获取不到的。</p>
+</li>
+<li><p>这两个方法都是全局对象window下的navigator下的geolocation下的方法，我们调用的时候要写全，但是navigator这个对象因为实在全局对象下的，所以window可以省略，但是建议写上window，只是一种严谨的书写模式，当然不写也没事。</p>
+<ul>
+<li>getCurrentPosition() 是获取当前用户的位置信息。（只获取一次信息用在我们进行定位的时候）</li>
+<li>watchPosition() 是重复获取当前用户信息。（随着你设置的重复获取间隔事件来获取位置信息，比如导航的时候）</li>
+<li>两个方法后面分别有三个参数<ul>
+<li>successCallback 是获取位置信息成功以后的回调函数</li>
+<li>errorCallback 是获取位置信息失败以后的回调函数</li>
+<li>options 是配置参数（这个参数在我们不需要使用的时候是可以不写的，他是一个对象，叫做对象传参，一般用作配置使用，这里知道怎么使用就行，后期讲ajax的时候封装一个ajax方法的时候就会学到了。）</li>
+</ul>
+</li>
+<li>这里我们就知道一下他的使用方法就好了，没必要纠结<ul>
+<li>他里面可以配置三个参数值</li>
+</ul>
+<ol>
+<li>enableHighAccuracy 高精度模式（就是指我们获取位置的时候要不要启用高精度模式）</li>
+<li>timeout 设置一个超时时间（就是拟规定一个时间，在这个时间内不能获取位置信息就中断，注意单位是“ms”）</li>
+<li>maximumAge 浏览器重新获取位置的时间间隔（一般用在重复获取的时候设置，注意单位也是“ms”）</li>
+</ol>
+</li>
+<li>这两个方法不管使用哪个，在当前浏览器第一次使用的时候，他都会自动询问用户是否允许，浏览器会记下你是否允许然后进行后续的操作。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">window.navigator.geolocation.getCurrentPosition(function(options)&#123;</div><div class="line">    console.log(options)</div><div class="line">&#125;, function(err)&#123;</div><div class="line">    console.log(err)</div><div class="line">&#125;, options)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>这就是具体的使用方法就是这样，当然“watchPosition()”方法在使用的时候和“getCurrentPosition()”是一样的。</p>
+</li>
+<li>在成功回调里出现的“options”和失败回调里出现的“err”都是函数执行是自动传给我们的一个参数，就和我们的事件对象“event”是一样的道理。<ul>
+<li>options 里面存储的是我们所获得的位置信息</li>
+<li>err 里面存储的是我们失败的原因</li>
+</ul>
+</li>
+<li>这里一般我们不会成功，因为在我们国内是受到了限制，是不允许我们得到位置信息的，所以实验时我们一定会进入错误回调。</li>
+<li>开发中我们是不会遇到这个问题的，因为人家有授权，而我们没有。</li>
+<li><p>假设现在我们成功了，我们就能得到一个“options”，而options下面会有一个coords的对象，这个对象上就存在了几个我们需要用的到属性</p>
+<ul>
+<li>latitude 纬度</li>
+<li>longitude 经度</li>
+<li>accuracy 精确度（就是指我们得到的位置信息大概在一个什么范围内）</li>
+<li>altitude 海拔高度<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var lat = options.coords.latitude;  //-&gt; 得到当前位置的纬度</div><div class="line">var lon = options.coords.longitude; //-&gt; 得到当前位置的经度</div><div class="line">var acc = options.coords.accuracy; //-&gt; 得到当前位置的精确度</div><div class="line">var alt = options.coords.altitude; //-&gt; 得到当前位置的海拔高度</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>这段代码放在成功的回调里执行，我们就会得到对应的我们需要的位置信息</p>
+</li>
+<li>因为我们没法自己制作一张准确的地图，所以我们就使用百度的接口进行下面的操作就好了，我们自己需要做到的就是获取一下当前的位置信息。</li>
+<li>下面我们来解释一下百度接口的使用。<ol>
+<li>首先我们打开<a href="http://developer.baidu.com/map/reference/" target="_blank" rel="external">百度地图第三方API</a></li>
+<li>点击导航栏里的“javaScript API”就行</li>
+<li>点击左侧侧边栏的“开发指南”，然后选择“Hello World”就好</li>
+<li>里面会有实例告诉我们具体怎么操作，按照他的实例我们自己写就行了。</li>
+</ol>
+</li>
+<li><p>再来写一下我们具体怎么写</p>
+<ol>
+<li><p>引入百度规定好的JS文件“<a href="http://api.map.baidu.com/api?v=2.0&amp;ak=你的密钥”" target="_blank" rel="external">http://api.map.baidu.com/api?v=2.0&amp;ak=你的密钥”</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;body&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;http://api.map.baidu.com/api?v=2.0&amp;ak=G5risP5FdnZZOB2QeV7kMyGnVESTXb4z&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>创建一个获取位置信息的函数，书写是尽量把回到函数写在外面，代码的可读性更高，培养一个良好的书写习惯</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;body&gt;</div><div class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;http://api.map.baidu.com/api?v=2.0&amp;ak=G5risP5FdnZZOB2QeV7kMyGnVESTXb4z&quot;&gt;&lt;/script&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    function success(position) &#123;&#125;</div><div class="line">    function error(error) &#123;&#125;</div><div class="line">    var options = &#123;&#125;</div><div class="line">    window.navigator.geolocation.getCurrentPosition(success,error,options)</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>咱们就直接在成功的回调函数“success”下继续咱们的操作就可以了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">function success(position) &#123;</div><div class="line">    var lat = options.coords.latitude;  //-&gt; 按照我们之前的方法获取纬度</div><div class="line">    var lon = options.coords.longitude;  //-&gt; 按照我们之前的方法获取经度</div><div class="line">    var map = new BMap.Map(&quot;box&quot;)  //-&gt; box就是我们想让地图显示在什么位置就写什么</div><div class="line">    var point = new BMap.Point(&quot;经度&quot;,&quot;纬度&quot;)  //-&gt; 创建我们之前得到的经纬度坐标（也可以自己写两个坐标）</div><div class="line">    map.centerAndZoom(point, 15);  //-&gt; 调用centerAndZoom()方法就可以</div><div class="line">    var marker = new BMap.Marker(point);  //-&gt; 创建一个覆盖物，并且设置出现在哪个坐标点</div><div class="line">    map.addOverlay(marker);  //-&gt; 让覆盖物出现在地图上</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>这样我们就能获取到位置信息后在地图上反映出来</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/11/18/H5API-geolocation/" data-id="ciwcxdrb0000akoo01nsm8as2" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/11/18/H5API-drag/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          H5API-drag
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/11/18/H5API-history/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">H5API-history</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/11/19/HTML5/">HTML5</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/19/HTML5的语义化/">HTML5的语义化</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/19/HTML5的兼容性/">HTML5的兼容性</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/19/HTML5的表单/">HTML5的表单</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/19/HTML5的多媒体/">HTML5的多媒体</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
