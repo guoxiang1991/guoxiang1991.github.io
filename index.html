@@ -61,6 +61,85 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-CSS3的选择器" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/04/CSS3的选择器/" class="article-date">
+  <time datetime="2016-12-03T16:00:00.000Z" itemprop="datePublished">2016-12-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/04/CSS3的选择器/">CSS3的选择器</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##CSS3的选择器</p>
+<ul>
+<li>选择器，顾名思义，就是和我们以前的选择器一样，因为是CSS用的，所以也就是在CSS中帮助我们捕获到某一个元素，好给他添加一些我们需要的样式，之前我们有接触过class选择器、ID选择器、标签选择器等等，但是在CSS3中有给我们提供了大量的方法来让我们使用，让我们可以更准确，更简单，跟快捷的捕获到某一个元素，从而给它添加样式。</li>
+<li>CSS3中添加的选择器分三大类，属性选择器、伪类选择器和伪元素选择器。</li>
+<li>属性选择器（就是根据元素中的属性名和属性值来获取元素，不仅仅是class和ID，还可以根据比如“href”、“name”、“type”等一些属性来获取元素）<ol>
+<li>ele[attr] – 只要该“ele”元素具有“attr ”属性名就行，不管属性值是什么。</li>
+<li>ele[attr=value] – 只要该“ele”元素具有“attr”属性名且该“attr”的值有且只有一个与“value”完全一样就可以被我们捕获到。</li>
+<li>ele[attr^=value] – 只要该“ele”元素具有“attr”属性名且该“attr”的值是以“value”字符开头就可以（匹配方式与正则匹配一样）。</li>
+<li>ele[attr$=value] – 只要该“ele”元素具有“attr”属性名且该“attr”的值是以“value”字符结尾就可以（匹配方式与正则匹配一样）。</li>
+<li>ele[attr*=value] – 只要该“ele”元素具有“attr”属性名且该“attr”的值中包含“value”字符就可以（匹配方式与正则匹配一样），必须是包含完整的“value”字符。</li>
+<li>ele[attr~=value] – 只要该“ele”元素具有“attr”属性名且该“attr”的值有多个时，只要其中的某一个值完整的与“value”一样，我们就可以捕获到。（这个是CSS2中的，但是非常实用）</li>
+</ol>
+</li>
+<li>伪类选择器（标准格式是“:”一个冒号，用伪类来获取元素更高效）<ol>
+<li>ele:first-child – 我们捕获到的是该“ele”元素的父级元素下的第一个子元素，不管是不是该“ele”元素，我们只是捕获第一个而已。</li>
+<li>ele:last-child – 我们捕获到的是该“ele”元素的父级元素下的最后一个子元素，不管是不是该“ele”元素，我们只是捕获最后一个而已。</li>
+<li>ele:nth-child(xn+y) – 我们捕获到的是该“ele”元素的父级元素下的第xn+y子元素，不管是不是该“ele”元素，我们只是第xn+y个而已。（xn+y是数学表达式）</li>
+<li>ele:nth-last-child(xn+y) – 我们捕获到的是该“ele”元素的父级元素下的倒数第xn+y子元素，不管是不是该“ele”元素，我们只是捕获倒数第xn+y个而已。（xn+y是数学表达式）</li>
+<li>ele:first-of-type – 我们捕获到的是该“ele”元素的兄弟元素中的第一个“ele”元素，“ele”可以使用class名，但是兄弟元素中至少要有两个具有一样class名的元素才可以。（不常用）</li>
+<li>ele:last-of-type – 我们捕获到的是该“ele”元素的兄弟元素中的最后一个“ele”元素，“ele”可以使用class名，但是兄弟元素中至少要有两个具有一样class名的元素才可以。（不常用）</li>
+<li>ele:nth-of-type(xn+y) – 我们捕获到的是该“ele”元素的兄弟元素中的第xn+y个元素，不管是不是该“ele”元素，我们只是第xn+y个而已。（xn+y是数学表达式），“ele”要使用标签名。（不常用）</li>
+<li>ele:nth-last-of-type(xn+y) – 我们捕获到的是该“ele”元素的兄弟元素中的倒数第xn+y个元素，不管是不是该“ele”元素，我们只是倒数第xn+y个而已。（xn+y是数学表达式），“ele”要使用标签名。（不常用）</li>
+<li>ele:empty – 如果该“ele”元素下没有任何子元素（不能有子元素，不能有文字，注释可以有，但是空格也不能有），我们就可以捕获到。（不常用，但是某些特殊的时候也有大用处）</li>
+<li>ele:checked – 我们捕获到的是是表单元素中的单选框或复选框当处在被选中的状态下的时候。</li>
+<li>ele:enabled – 我们捕获到的是表单元素中的按钮处在可以点击的状态的时候。（不常用，但是某些特殊的时候也有大用处）</li>
+<li>ele:disabled – 我们捕获到的是表单元素中的按钮处在禁用状态的时候。（不常用，但是某些特殊的时候也有大用处）</li>
+<li>ele:target – 捕获的是当我们使用锚点连接时，锚点到的那个元素。（被锚点元素）</li>
+</ol>
+</li>
+<li><p>伪元素选择器</p>
+<ol>
+<li>ele:before/ele::before –&gt; 在该“ele”元素下添加一个叫做“before”的子元素，放在该“ele”元素下最前面的位置，因为是伪元素，所以我们一定要给起添加“content:’’;”这个样式，不然是不会出现效果的，content也可以是文本，但是不可以是超文本。（一个冒号是以前的规定，后来改成了两个冒号，所以有一些低版本的浏览器是不支持两个冒号的，书写时写成一个冒号就行）</li>
+<li>ele:after/ele::after –&gt; 在该“ele”元素下添加一个叫做“after”的子元素，放在该“ele”元素下最后面的位置，因为是伪元素，所以我们一定要给起添加“content:’’;”这个样式，不然是不会出现效果的，content也可以是文本，但是不可以是超文本。（一个冒号是以前的规定，后来改成了两个冒号，所以有一些低版本的浏览器是不支持两个冒号的，书写时写成一个冒号就行）</li>
+<li>ele:first-letter/ele::first-letter –&gt; 是设置该“ele”元素下的第一个文本字符的样式，不分语种，只是匹配第一个文本字符。（一个冒号是以前的规定，后来改成了两个冒号，所以有一些低版本的浏览器是不支持两个冒号的，书写时写成一个冒号就行）</li>
+<li>ele:first-line/ele::first-line –&gt; 是设置该“ele”元素下的第一行文本字符的样式，不分语种，只是匹配第一行文本字符。这个第一行是相对的，如果盒子变小，第一行文字随之变少后，也是只设置第一行（一个冒号是以前的规定，后来改成了两个冒号，所以有一些低版本的浏览器是不支持两个冒号的，书写时写成一个冒号就行）</li>
+<li>ele::selection –&gt; 是设置该“ele”元素下内容被选中时候的样式（一般用于改变背景颜色和文字颜色，但是不能改变文字大小），这个是CSS3中新增的，所以不能使用一个冒号，必须写两个冒号。</li>
+<li>ele::placeholder –&gt; 是设置表单元素中文本框（搜索框、密码框。。。）中的占位符的样式，因为这个兼容性特别不好，所以各个浏览器的书写方式不一样，要特别注意一下。（不常用，但是某些特殊时候会有大用处），一般写成下面四种（火狐的写两种，一种是火狐低版本，一种是火狐高版本）<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ele::-webkit-input-placeholder&#123;&#125;</div><div class="line">ele:-ms-input-placeholder&#123;&#125;</div><div class="line">ele::-moz-placeholder&#123;&#125;</div><div class="line">ele:-moz-placeholder&#123;&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>怎么样，这样我们在获取元素的时候会更准确的捕获到我们的元素本身了。</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/12/04/CSS3的选择器/" data-id="ciwcy436h0000m8o07wgn00cv" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-HTML5" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/11/19/HTML5/" class="article-date">
@@ -97,7 +176,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/19/HTML5/" data-id="ciwcxdrak0006koo0a4yk77mx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/19/HTML5/" data-id="ciwcy437o0009m8o04nm95hvz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -186,7 +265,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/19/HTML5的语义化/" data-id="ciwcxdrbf000dkoo0z323all2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/19/HTML5的语义化/" data-id="ciwcy4381000fm8o0u62ge09a" class="article-share-link">Share</a>
       
       
     </footer>
@@ -276,7 +355,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/19/HTML5的兼容性/" data-id="ciwcxdrbj000ekoo0zcnyzbqi" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/19/HTML5的兼容性/" data-id="ciwcy437r000bm8o0imalolho" class="article-share-link">Share</a>
       
       
     </footer>
@@ -350,7 +429,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/19/HTML5的表单/" data-id="ciwcxdray0009koo0oty2sl7m" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/19/HTML5的表单/" data-id="ciwcy437w000dm8o0d7tdjorx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -422,7 +501,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/19/HTML5的多媒体/" data-id="ciwcxdrav0008koo03gqc1dr9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/19/HTML5的多媒体/" data-id="ciwcy437t000cm8o0chaap19x" class="article-share-link">Share</a>
       
       
     </footer>
@@ -504,7 +583,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/19/HTML5的DOM扩展/" data-id="ciwcxdrac0005koo0cx1alqeo" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/19/HTML5的DOM扩展/" data-id="ciwcy437p000am8o0b7by7yz9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -557,7 +636,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/19/H5API-online/" data-id="ciwcxdra00003koo0055aohlg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/19/H5API-online/" data-id="ciwcy437i0007m8o0mb9l5ht3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -633,7 +712,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/18/H5API-fullScreen/" data-id="ciwcxdr9u0002koo07lgekkxv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/18/H5API-fullScreen/" data-id="ciwcy43740004m8o0l1mtxtht" class="article-share-link">Share</a>
       
       
     </footer>
@@ -711,82 +790,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/18/H5API-fileReader/" data-id="ciwcxdram0007koo07z63wjc1" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-H5API-drag" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/11/18/H5API-drag/" class="article-date">
-  <time datetime="2016-11-18T13:00:00.000Z" itemprop="datePublished">2016-11-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/18/H5API-drag/">H5API-drag</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="H5的新增API中的drag"><a href="#H5的新增API中的drag" class="headerlink" title="H5的新增API中的drag"></a>H5的新增API中的drag</h2><ul>
-<li>这里所说的拖拽和以前我们结束到的差不多，但是还是不太一样，这个拖拽主要是用来和刚才的文件读取配合使用，因为我们不光可以点击选择图片上传，也可以使用拖拽的方式把图片直接拖拽到页面上进行上传。</li>
-<li>首先来解释一下什么是拖拽元素和目标元素：<ul>
-<li>拖拽元素：就是指我们想拖动哪个元素，哪个元素就是拖拽元素（其实就是我们在页面上是拖着谁走谁就是）。</li>
-<li>目标元素：我们要把我们的“拖拽元素”拖到哪，那就是目标元素。</li>
-</ul>
-</li>
-<li>这个时候我们就需要一些事件来把拖拽这个事情完成<ul>
-<li>应用于“拖拽元素”的几个事件：</li>
-<li>ondrag：拖拽时调用（就是我们拖着一个“拖拽元素”在页面上来回跑的时候，每当位置发生一次改变，就会触发）。</li>
-<li>ondragstart：拖拽开始时调用（注意这个开始并不是鼠标点击下去就算开始，而是按下去以后并且发生了位移）。</li>
-<li>ondragend：拖拽结束时调用（就是我们已经改变了“拖拽元素”的位置以后松开鼠标才会触发）。</li>
-<li>ondragleave：鼠标离开拖拽元素时调用（我们的“拖拽元素不管多大都是有个范围的，当光标离开范围的时候触发”）</li>
-</ul>
-</li>
-<li>刚才说的就是“拖拽元素”的事件，这里有一个需要注意的点就是当拖拽开始的时候，虽然我们看到的是一个完整的“拖拽元素”，但是这个时候我们的拖拽元素实际上只有“光标的尖点”那么大。也就是说只有“光标的尖点”才是我们真是的拖拽元素，而不是我们看到的整个元素。而当我们松开鼠标以后，我们的“拖拽元素”就不再是“光标的尖点”了，而是我们看到的那个整个元素，知道他回到一开始的位置才结束。</li>
-<li>刚才说了拖拽元素的一些事件，接下来我们说一下目标元素的事件，因为任意一个元素都可以是目标元素，所以我们想让谁当目标元素的时候就用谁来绑定这些事件<ul>
-<li>应用于“目标元素”的几个事件：</li>
-<li>ondragenter：当“拖拽元素”进入“目标元素”后触发（注意是“光标的尖点”进入目标元素时触发）。</li>
-<li>ondragover：当“拖拽元素”在“目标元素”内就会触发（注意是“光标的尖点”在目标元素中的时候触发，而且是不管有没有位移都会触发）</li>
-<li>ondragleave：当“拖拽元素”离开“目标元素”以后触发（注意是“光标的尖点”离开目标元素的时候触发）。</li>
-<li>ondrop：当“拖拽元素”在“目标元素”内松开鼠标时触发（注意是“光标的尖点”在目标元素内松开时触发）。</li>
-</ul>
-</li>
-<li>在这里有一个需要注意的地方就是当我们在“目标元素”内松开鼠标的一瞬间，我们的“拖拽元素”会变成我们看到的整个元素，而在这个整个元素回到开始位置的过程中还是会触发“ondragover”事件，所以我们如果绑定了“ondragover”事件就一定要加上一个“preventDefault()”方法来阻止“ondragover”的默认事件。</li>
-<li>当我们从本地拖拽一个图片到我们页面上的目标元素上松开鼠标时，会触发一个ondrop事件的默认事件，就是以一个新标签页打开图片地址，这个时候我们也需要给我们的ondrop事件来加上一个“preventDefault()”方法阻止他的默认事件。</li>
-<li>这样我们的拖拽元素和目标元素的事件就都有了，我们就可以根据这些事件来进行拖拽文件读取了。</li>
-<li><p>这个过程就和之前的文件读取一样了，只不过这个时候存储我们图片信息的位置不一样了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">目标元素.addEventListener(&quot;drop&quot;,function(e)&#123;</div><div class="line">console.log(e.dataTransfer);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-</li>
-<li><p>这个“dataTransfer”里面就存储了“files”，和刚才的道理一样，只不过刚才我们直接是“file”对象下有一个“files”，而在拖拽上传中，我们的“files”藏在了“dataTransfer”里面，所以我们就需要多拐一个弯而已</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">目标元素.addEventListener(&quot;drop&quot;,function(e)&#123;</div><div class="line">var res = e.dataTransfer.files[0];</div><div class="line">console.log(res);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-</li>
-<li><p>这里我们得到的res就是我们拖拽的图片的具体信息了，然后我们得到了具体信息以后就可以像刚才读取文件时候的步骤一样来绑定了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;container&quot;&gt;//-&gt; 这里没有写样式，自己添加就好</div><div class="line">    &lt;img src=&quot;&quot; class=&quot;preview&quot; alt=&quot;&quot;&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    var container = document.querySelector(&apos;.container&apos;);//-&gt; 目标元素</div><div class="line">    var oImg = document.querySelector(&apos;.preview&apos;);//-&gt; 备用，用于之后放置图片</div><div class="line">    container.addEventListener(&apos;dragover&apos;, function (ev) &#123;</div><div class="line">        ev.preventDefault();//-&gt; 阻止drop时会触发的dragover的默认事件</div><div class="line">    &#125;);</div><div class="line">    container.addEventListener(&apos;drop&apos;, function (ev) &#123;</div><div class="line">        ev.preventDefault();//-&gt; 阻止drop时会以新页面打开的默认事件</div><div class="line">        var reader = new FileReader();//-&gt; 实例化“FileReader”</div><div class="line">        var res = ev.dataTransfer.files[0];//-&gt; 存储的我们选中的图片的具体信息</div><div class="line">        reader.readAsDataURL(res);//-&gt; 用readAsDataURL(res)方法把图片转成编码</div><div class="line">        reader.onload = function () &#123;</div><div class="line">            oImg.src = this.result;//-&gt; 给img的src属性赋值</div><div class="line">        &#125;;</div><div class="line">    &#125;);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-</li>
-<li><p>现在我们就完成了拖拽图片上传的事情，其实和之前的文件读取一样，只不过是通过一些drag事件来完成的。</p>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/18/H5API-drag/" data-id="ciwcxdrb7000bkoo025siuhk4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/18/H5API-fileReader/" data-id="ciwcy43720003m8o0zdh93f90" class="article-share-link">Share</a>
       
       
     </footer>
@@ -817,7 +821,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li></ul>
     </div>
   </div>
 
@@ -828,6 +832,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/12/04/CSS3的选择器/">CSS3的选择器</a>
+          </li>
         
           <li>
             <a href="/2016/11/19/HTML5/">HTML5</a>
@@ -843,10 +851,6 @@
         
           <li>
             <a href="/2016/11/19/HTML5的表单/">HTML5的表单</a>
-          </li>
-        
-          <li>
-            <a href="/2016/11/19/HTML5的多媒体/">HTML5的多媒体</a>
           </li>
         
       </ul>

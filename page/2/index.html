@@ -61,6 +61,81 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-H5API-drag" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/18/H5API-drag/" class="article-date">
+  <time datetime="2016-11-18T13:00:00.000Z" itemprop="datePublished">2016-11-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/18/H5API-drag/">H5API-drag</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="H5的新增API中的drag"><a href="#H5的新增API中的drag" class="headerlink" title="H5的新增API中的drag"></a>H5的新增API中的drag</h2><ul>
+<li>这里所说的拖拽和以前我们结束到的差不多，但是还是不太一样，这个拖拽主要是用来和刚才的文件读取配合使用，因为我们不光可以点击选择图片上传，也可以使用拖拽的方式把图片直接拖拽到页面上进行上传。</li>
+<li>首先来解释一下什么是拖拽元素和目标元素：<ul>
+<li>拖拽元素：就是指我们想拖动哪个元素，哪个元素就是拖拽元素（其实就是我们在页面上是拖着谁走谁就是）。</li>
+<li>目标元素：我们要把我们的“拖拽元素”拖到哪，那就是目标元素。</li>
+</ul>
+</li>
+<li>这个时候我们就需要一些事件来把拖拽这个事情完成<ul>
+<li>应用于“拖拽元素”的几个事件：</li>
+<li>ondrag：拖拽时调用（就是我们拖着一个“拖拽元素”在页面上来回跑的时候，每当位置发生一次改变，就会触发）。</li>
+<li>ondragstart：拖拽开始时调用（注意这个开始并不是鼠标点击下去就算开始，而是按下去以后并且发生了位移）。</li>
+<li>ondragend：拖拽结束时调用（就是我们已经改变了“拖拽元素”的位置以后松开鼠标才会触发）。</li>
+<li>ondragleave：鼠标离开拖拽元素时调用（我们的“拖拽元素不管多大都是有个范围的，当光标离开范围的时候触发”）</li>
+</ul>
+</li>
+<li>刚才说的就是“拖拽元素”的事件，这里有一个需要注意的点就是当拖拽开始的时候，虽然我们看到的是一个完整的“拖拽元素”，但是这个时候我们的拖拽元素实际上只有“光标的尖点”那么大。也就是说只有“光标的尖点”才是我们真是的拖拽元素，而不是我们看到的整个元素。而当我们松开鼠标以后，我们的“拖拽元素”就不再是“光标的尖点”了，而是我们看到的那个整个元素，知道他回到一开始的位置才结束。</li>
+<li>刚才说了拖拽元素的一些事件，接下来我们说一下目标元素的事件，因为任意一个元素都可以是目标元素，所以我们想让谁当目标元素的时候就用谁来绑定这些事件<ul>
+<li>应用于“目标元素”的几个事件：</li>
+<li>ondragenter：当“拖拽元素”进入“目标元素”后触发（注意是“光标的尖点”进入目标元素时触发）。</li>
+<li>ondragover：当“拖拽元素”在“目标元素”内就会触发（注意是“光标的尖点”在目标元素中的时候触发，而且是不管有没有位移都会触发）</li>
+<li>ondragleave：当“拖拽元素”离开“目标元素”以后触发（注意是“光标的尖点”离开目标元素的时候触发）。</li>
+<li>ondrop：当“拖拽元素”在“目标元素”内松开鼠标时触发（注意是“光标的尖点”在目标元素内松开时触发）。</li>
+</ul>
+</li>
+<li>在这里有一个需要注意的地方就是当我们在“目标元素”内松开鼠标的一瞬间，我们的“拖拽元素”会变成我们看到的整个元素，而在这个整个元素回到开始位置的过程中还是会触发“ondragover”事件，所以我们如果绑定了“ondragover”事件就一定要加上一个“preventDefault()”方法来阻止“ondragover”的默认事件。</li>
+<li>当我们从本地拖拽一个图片到我们页面上的目标元素上松开鼠标时，会触发一个ondrop事件的默认事件，就是以一个新标签页打开图片地址，这个时候我们也需要给我们的ondrop事件来加上一个“preventDefault()”方法阻止他的默认事件。</li>
+<li>这样我们的拖拽元素和目标元素的事件就都有了，我们就可以根据这些事件来进行拖拽文件读取了。</li>
+<li><p>这个过程就和之前的文件读取一样了，只不过这个时候存储我们图片信息的位置不一样了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">目标元素.addEventListener(&quot;drop&quot;,function(e)&#123;</div><div class="line">console.log(e.dataTransfer);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+<li><p>这个“dataTransfer”里面就存储了“files”，和刚才的道理一样，只不过刚才我们直接是“file”对象下有一个“files”，而在拖拽上传中，我们的“files”藏在了“dataTransfer”里面，所以我们就需要多拐一个弯而已</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">目标元素.addEventListener(&quot;drop&quot;,function(e)&#123;</div><div class="line">var res = e.dataTransfer.files[0];</div><div class="line">console.log(res);</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+</li>
+<li><p>这里我们得到的res就是我们拖拽的图片的具体信息了，然后我们得到了具体信息以后就可以像刚才读取文件时候的步骤一样来绑定了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;container&quot;&gt;//-&gt; 这里没有写样式，自己添加就好</div><div class="line">    &lt;img src=&quot;&quot; class=&quot;preview&quot; alt=&quot;&quot;&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;script&gt;</div><div class="line">    var container = document.querySelector(&apos;.container&apos;);//-&gt; 目标元素</div><div class="line">    var oImg = document.querySelector(&apos;.preview&apos;);//-&gt; 备用，用于之后放置图片</div><div class="line">    container.addEventListener(&apos;dragover&apos;, function (ev) &#123;</div><div class="line">        ev.preventDefault();//-&gt; 阻止drop时会触发的dragover的默认事件</div><div class="line">    &#125;);</div><div class="line">    container.addEventListener(&apos;drop&apos;, function (ev) &#123;</div><div class="line">        ev.preventDefault();//-&gt; 阻止drop时会以新页面打开的默认事件</div><div class="line">        var reader = new FileReader();//-&gt; 实例化“FileReader”</div><div class="line">        var res = ev.dataTransfer.files[0];//-&gt; 存储的我们选中的图片的具体信息</div><div class="line">        reader.readAsDataURL(res);//-&gt; 用readAsDataURL(res)方法把图片转成编码</div><div class="line">        reader.onload = function () &#123;</div><div class="line">            oImg.src = this.result;//-&gt; 给img的src属性赋值</div><div class="line">        &#125;;</div><div class="line">    &#125;);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>现在我们就完成了拖拽图片上传的事情，其实和之前的文件读取一样，只不过是通过一些drag事件来完成的。</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/11/18/H5API-drag/" data-id="ciwcy436w0002m8o0huzfpean" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-H5API-geolocation" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/11/18/H5API-geolocation/" class="article-date">
@@ -163,7 +238,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/18/H5API-geolocation/" data-id="ciwcxdrb0000akoo01nsm8as2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/18/H5API-geolocation/" data-id="ciwcy43760005m8o0wbykhoes" class="article-share-link">Share</a>
       
       
     </footer>
@@ -223,7 +298,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/18/H5API-history/" data-id="ciwcxdr9o0001koo036in9l3w" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/18/H5API-history/" data-id="ciwcy437c0006m8o0xzi1tl1g" class="article-share-link">Share</a>
       
       
     </footer>
@@ -274,7 +349,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/18/H5API-storage/" data-id="ciwcxdra60004koo0by1ycyj3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/18/H5API-storage/" data-id="ciwcy437l0008m8o0ix6oomb0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -322,7 +397,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/18/H5API-appcache/" data-id="ciwcxdr9b0000koo0y5pmhxyq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/18/H5API-appcache/" data-id="ciwcy436r0001m8o094ihu8c9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -413,7 +488,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/10/angular的自定义指令/" data-id="ciwcxdrc2000fkoo0yqo2fxj2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/10/angular的自定义指令/" data-id="ciwcy437y000em8o0gba79dbz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -458,7 +533,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/08/21/hello-world/" data-id="ciwcxdrbc000ckoo09aaysa7k" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/08/21/hello-world/" data-id="ciwcy4383000gm8o0aejtadts" class="article-share-link">Share</a>
       
       
     </footer>
@@ -489,7 +564,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li></ul>
     </div>
   </div>
 
@@ -500,6 +575,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/12/04/CSS3的选择器/">CSS3的选择器</a>
+          </li>
         
           <li>
             <a href="/2016/11/19/HTML5/">HTML5</a>
@@ -515,10 +594,6 @@
         
           <li>
             <a href="/2016/11/19/HTML5的表单/">HTML5的表单</a>
-          </li>
-        
-          <li>
-            <a href="/2016/11/19/HTML5的多媒体/">HTML5的多媒体</a>
           </li>
         
       </ul>
