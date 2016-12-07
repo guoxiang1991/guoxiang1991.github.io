@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>HTML5的DOM扩展 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在HTML5中也新添加了几个操作DOM元素的方法，非常的实用而且方便。
+
+获取元素
+就是对于HTML页面中DOM元素的获取，以前我们可以通过标签名（TagName）、ID名等方式获取，但是HTML5中的可以通过类名（ClassName）和选择器来获取了。
+
+
+通过ClassName来获取
+1234567891011&amp;lt;body&amp;gt;    &amp;lt;ul&amp;gt;        &amp;lt;li">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML5的DOM扩展">
+<meta property="og:url" content="http://yoursite.com/2016/10/19/HTML5的DOM扩展/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="在HTML5中也新添加了几个操作DOM元素的方法，非常的实用而且方便。
+
+获取元素
+就是对于HTML页面中DOM元素的获取，以前我们可以通过标签名（TagName）、ID名等方式获取，但是HTML5中的可以通过类名（ClassName）和选择器来获取了。
+
+
+通过ClassName来获取
+1234567891011&amp;lt;body&amp;gt;    &amp;lt;ul&amp;gt;        &amp;lt;li">
+<meta property="og:updated_time" content="2016-12-07T16:45:27.493Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTML5的DOM扩展">
+<meta name="twitter:description" content="在HTML5中也新添加了几个操作DOM元素的方法，非常的实用而且方便。
+
+获取元素
+就是对于HTML页面中DOM元素的获取，以前我们可以通过标签名（TagName）、ID名等方式获取，但是HTML5中的可以通过类名（ClassName）和选择器来获取了。
+
+
+通过ClassName来获取
+1234567891011&amp;lt;body&amp;gt;    &amp;lt;ul&amp;gt;        &amp;lt;li">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-HTML5的DOM扩展" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/10/19/HTML5的DOM扩展/" class="article-date">
+  <time datetime="2016-10-19T02:26:32.000Z" itemprop="datePublished">2016-10-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      HTML5的DOM扩展
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>在HTML5中也新添加了几个操作DOM元素的方法，非常的实用而且方便。</li>
+</ul>
+<h2 id="获取元素"><a href="#获取元素" class="headerlink" title="获取元素"></a>获取元素</h2><ul>
+<li>就是对于HTML页面中DOM元素的获取，以前我们可以通过标签名（TagName）、ID名等方式获取，但是HTML5中的可以通过类名（ClassName）和选择器来获取了。</li>
+</ul>
+<ol>
+<li><p>通过ClassName来获取</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;body&gt;</div><div class="line">    &lt;ul&gt;</div><div class="line">        &lt;li class=&quot;first&quot;&gt;111&lt;/li&gt;</div><div class="line">        &lt;li class=&quot;first&quot;&gt;222&lt;/li&gt;</div><div class="line">        &lt;li&gt;333&lt;/li&gt;</div><div class="line">        &lt;li&gt;444&lt;/li&gt;</div><div class="line">    &lt;/ul&gt;</div><div class="line">    &lt;script&gt;</div><div class="line">        console.log(document.getElementsByClassName(&quot;first&quot;));</div><div class="line">    &lt;/script&gt;</div><div class="line">&lt;/body&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>这样我们得到的是所有ClassName为“first”的元素组成的一个类数组。</li>
+</ul>
+</li>
+<li><p>通过选择器（querySelector）来获取</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;body&gt;</div><div class="line">    &lt;ul&gt;</div><div class="line">        &lt;li class=&quot;first&quot;&gt;111&lt;/li&gt;</div><div class="line">        &lt;li class=&quot;first&quot;&gt;222&lt;/li&gt;</div><div class="line">        &lt;li&gt;333&lt;/li&gt;</div><div class="line">        &lt;li&gt;444&lt;/li&gt;</div><div class="line">    &lt;/ul&gt;</div><div class="line">    &lt;script&gt;</div><div class="line">        console.log(document.querySelector(&quot;.first&quot;));</div><div class="line">    &lt;/script&gt;</div><div class="line">&lt;/body&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>通过选择器获取，其实就是我们在写CSS样式时使用的选择器而已，不光可以写类名，写ID名也可以，也可以使用后代、子代选择器来进一步操作DOM元素，这个和jQuery的获取DOM元素的方式是一样的，但是要注意的是，这个querySelector获取到的只是你规定范围内的第一个符合条件的元素。其实他是很懒的，当querySelector找到一个符合条件的元素以后，他就不再工作了。</li>
+</ul>
+</li>
+<li><p>通过选择器（querySelectorAll）来获取</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;body&gt;</div><div class="line">    &lt;ul&gt;</div><div class="line">        &lt;li class=&quot;first&quot;&gt;111&lt;/li&gt;</div><div class="line">        &lt;li class=&quot;first&quot;&gt;222&lt;/li&gt;</div><div class="line">        &lt;li&gt;333&lt;/li&gt;</div><div class="line">        &lt;li&gt;444&lt;/li&gt;</div><div class="line">    &lt;/ul&gt;</div><div class="line">    &lt;script&gt;</div><div class="line">        console.log(document.querySelectorAll(&quot;.first&quot;));</div><div class="line">    &lt;/script&gt;</div><div class="line">&lt;/body&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>这个获取方式和querySelector是一样的，只不过他会把所有符合条件的元素都找出来，以一个类数组的形式返回。</li>
+</ul>
+</li>
+</ol>
+<h2 id="类名操作"><a href="#类名操作" class="headerlink" title="类名操作"></a>类名操作</h2><ul>
+<li>类名操作就是H5中为我们提供的直接操作元素ClassName的增删改查的方法。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Node.classList.add(&apos;class&apos;) 添加class</div><div class="line">Node.classList.remove(&apos;class&apos;) 移除class</div><div class="line">Node.classList.toggle(&apos;class&apos;) 切换class，有则移除，无则添加</div><div class="line">Node.classList.contains(&apos;class&apos;) 检测是否存在class</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="自定义属性"><a href="#自定义属性" class="headerlink" title="自定义属性"></a>自定义属性</h2><ul>
+<li>自定义属性就是H5为我们提供的往对象上添加和查找自定义属性的方法</li>
+<li>以前我们写选项卡的时候，最初学到的解决异步时 i 值会直接到最大的问题，我们就是添加了一个自定义属性index，但是H5中，这个自定义属性是不一样的，他有了一个新的规定。</li>
+<li><p>其实，这个就是我们的对象上的一个方法，每一个对象身上都有dataset这样一个属性，这个方法存储的是当前这个对象上所有的自定义属性，只不过这个自定义属性要符合一定的条件，条件就是这个自定义属性的前缀一定要是“data-”。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div data-name=&quot;传智播客&quot; data-age=&quot;10&quot; index=&quot;1&quot; sex=&quot;随便&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>就好像这个div，他本身是一个对象，我们一个给他添加了4个自定义属性，但是只有两个是以“data-”为前缀的，所以只有这两个是属于H5的自定义属性，也就是说我们在当前这个对象上的dataset属性上，只能找到“name”和“age”两个自定义属性。为什么是“name”和“age”两个自定义属性呢，而不是“data-name”和“data-age”两个自定义属性呢，因为我们之前说过“data-”仅仅只是一个前缀，而不是我们自定义属性的名字，所以说我们真正的自定义属性就是“name”和“age”两个。</p>
+</li>
+<li>而我们为什么一定要dataset这个属性来查找我们设置的自定义属性呢，因为如果我们直接“obj.data-name”这样查找的话也是可以的，但是这样查找的话，我们的引擎会去遍历一遍DOM元素，当我们只是查找一次的时候是无所谓的，但是一旦多次的话，每次他都要去遍历一遍DOM元素就比较耗性能了。</li>
+<li><p>还有一个要注意的就是，我们在查找的时候要注意用驼峰命名法查找</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div data-my-name=&quot;传智播客&quot; data-my-age=&quot;10&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>这个时候我们的我们在JS中操作DOM元素查找的时候要写成“obj.dataset.myName”这种形式.</p>
+</li>
+<li>而对这个自定义属性的增删改查和原先我们学习的对对象上的属性的增删改查是一样的。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/10/19/HTML5的DOM扩展/" data-id="ciwf61tjs000arko0sp22pxnm" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/10/19/HTML5的多媒体/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          HTML5的多媒体
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/10/19/H5API-online/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">H5API-online</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/12/08/Hybrid App/">App</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/04/CSS3的选择器/">CSS3的选择器</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/19/HTML5/">HTML5</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/19/HTML5的语义化/">HTML5的语义化</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/19/HTML5的兼容性/">HTML5的兼容性</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

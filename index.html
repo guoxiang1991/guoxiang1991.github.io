@@ -48,9 +48,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -64,7 +64,7 @@
     <article id="hybrid-Hybrid App" class="article article-type-hybrid" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2016/12/08/Hybrid App/" class="article-date">
-  <time datetime="2016-12-07T16:39:11.000Z" itemprop="datePublished">2016-12-08</time>
+  <time datetime="2016-12-07T16:00:00.000Z" itemprop="datePublished">2016-12-08</time>
 </a>
     
   </div>
@@ -87,7 +87,86 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/12/08/Hybrid App/" data-id="ciwf5w59z000b4wo0xuivr907" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/12/08/Hybrid App/" data-id="ciwf61tk5000frko0qe5yqsxx" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-CSS3的选择器" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/11/04/CSS3的选择器/" class="article-date">
+  <time datetime="2016-11-03T16:00:00.000Z" itemprop="datePublished">2016-11-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/04/CSS3的选择器/">CSS3的选择器</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##CSS3的选择器</p>
+<ul>
+<li>选择器，顾名思义，就是和我们以前的选择器一样，因为是CSS用的，所以也就是在CSS中帮助我们捕获到某一个元素，好给他添加一些我们需要的样式，之前我们有接触过class选择器、ID选择器、标签选择器等等，但是在CSS3中有给我们提供了大量的方法来让我们使用，让我们可以更准确，更简单，跟快捷的捕获到某一个元素，从而给它添加样式。</li>
+<li>CSS3中添加的选择器分三大类，属性选择器、伪类选择器和伪元素选择器。</li>
+<li>属性选择器（就是根据元素中的属性名和属性值来获取元素，不仅仅是class和ID，还可以根据比如“href”、“name”、“type”等一些属性来获取元素）<ol>
+<li>ele[attr] – 只要该“ele”元素具有“attr ”属性名就行，不管属性值是什么。</li>
+<li>ele[attr=value] – 只要该“ele”元素具有“attr”属性名且该“attr”的值有且只有一个与“value”完全一样就可以被我们捕获到。</li>
+<li>ele[attr^=value] – 只要该“ele”元素具有“attr”属性名且该“attr”的值是以“value”字符开头就可以（匹配方式与正则匹配一样）。</li>
+<li>ele[attr$=value] – 只要该“ele”元素具有“attr”属性名且该“attr”的值是以“value”字符结尾就可以（匹配方式与正则匹配一样）。</li>
+<li>ele[attr*=value] – 只要该“ele”元素具有“attr”属性名且该“attr”的值中包含“value”字符就可以（匹配方式与正则匹配一样），必须是包含完整的“value”字符。</li>
+<li>ele[attr~=value] – 只要该“ele”元素具有“attr”属性名且该“attr”的值有多个时，只要其中的某一个值完整的与“value”一样，我们就可以捕获到。（这个是CSS2中的，但是非常实用）</li>
+</ol>
+</li>
+<li>伪类选择器（标准格式是“:”一个冒号，用伪类来获取元素更高效）<ol>
+<li>ele:first-child – 我们捕获到的是该“ele”元素的父级元素下的第一个子元素，不管是不是该“ele”元素，我们只是捕获第一个而已。</li>
+<li>ele:last-child – 我们捕获到的是该“ele”元素的父级元素下的最后一个子元素，不管是不是该“ele”元素，我们只是捕获最后一个而已。</li>
+<li>ele:nth-child(xn+y) – 我们捕获到的是该“ele”元素的父级元素下的第xn+y子元素，不管是不是该“ele”元素，我们只是第xn+y个而已。（xn+y是数学表达式）</li>
+<li>ele:nth-last-child(xn+y) – 我们捕获到的是该“ele”元素的父级元素下的倒数第xn+y子元素，不管是不是该“ele”元素，我们只是捕获倒数第xn+y个而已。（xn+y是数学表达式）</li>
+<li>ele:first-of-type – 我们捕获到的是该“ele”元素的兄弟元素中的第一个“ele”元素，“ele”可以使用class名，但是兄弟元素中至少要有两个具有一样class名的元素才可以。（不常用）</li>
+<li>ele:last-of-type – 我们捕获到的是该“ele”元素的兄弟元素中的最后一个“ele”元素，“ele”可以使用class名，但是兄弟元素中至少要有两个具有一样class名的元素才可以。（不常用）</li>
+<li>ele:nth-of-type(xn+y) – 我们捕获到的是该“ele”元素的兄弟元素中的第xn+y个元素，不管是不是该“ele”元素，我们只是第xn+y个而已。（xn+y是数学表达式），“ele”要使用标签名。（不常用）</li>
+<li>ele:nth-last-of-type(xn+y) – 我们捕获到的是该“ele”元素的兄弟元素中的倒数第xn+y个元素，不管是不是该“ele”元素，我们只是倒数第xn+y个而已。（xn+y是数学表达式），“ele”要使用标签名。（不常用）</li>
+<li>ele:empty – 如果该“ele”元素下没有任何子元素（不能有子元素，不能有文字，注释可以有，但是空格也不能有），我们就可以捕获到。（不常用，但是某些特殊的时候也有大用处）</li>
+<li>ele:checked – 我们捕获到的是是表单元素中的单选框或复选框当处在被选中的状态下的时候。</li>
+<li>ele:enabled – 我们捕获到的是表单元素中的按钮处在可以点击的状态的时候。（不常用，但是某些特殊的时候也有大用处）</li>
+<li>ele:disabled – 我们捕获到的是表单元素中的按钮处在禁用状态的时候。（不常用，但是某些特殊的时候也有大用处）</li>
+<li>ele:target – 捕获的是当我们使用锚点连接时，锚点到的那个元素。（被锚点元素）</li>
+</ol>
+</li>
+<li><p>伪元素选择器</p>
+<ol>
+<li>ele:before/ele::before –&gt; 在该“ele”元素下添加一个叫做“before”的子元素，放在该“ele”元素下最前面的位置，因为是伪元素，所以我们一定要给起添加“content:’’;”这个样式，不然是不会出现效果的，content也可以是文本，但是不可以是超文本。（一个冒号是以前的规定，后来改成了两个冒号，所以有一些低版本的浏览器是不支持两个冒号的，书写时写成一个冒号就行）</li>
+<li>ele:after/ele::after –&gt; 在该“ele”元素下添加一个叫做“after”的子元素，放在该“ele”元素下最后面的位置，因为是伪元素，所以我们一定要给起添加“content:’’;”这个样式，不然是不会出现效果的，content也可以是文本，但是不可以是超文本。（一个冒号是以前的规定，后来改成了两个冒号，所以有一些低版本的浏览器是不支持两个冒号的，书写时写成一个冒号就行）</li>
+<li>ele:first-letter/ele::first-letter –&gt; 是设置该“ele”元素下的第一个文本字符的样式，不分语种，只是匹配第一个文本字符。（一个冒号是以前的规定，后来改成了两个冒号，所以有一些低版本的浏览器是不支持两个冒号的，书写时写成一个冒号就行）</li>
+<li>ele:first-line/ele::first-line –&gt; 是设置该“ele”元素下的第一行文本字符的样式，不分语种，只是匹配第一行文本字符。这个第一行是相对的，如果盒子变小，第一行文字随之变少后，也是只设置第一行（一个冒号是以前的规定，后来改成了两个冒号，所以有一些低版本的浏览器是不支持两个冒号的，书写时写成一个冒号就行）</li>
+<li>ele::selection –&gt; 是设置该“ele”元素下内容被选中时候的样式（一般用于改变背景颜色和文字颜色，但是不能改变文字大小），这个是CSS3中新增的，所以不能使用一个冒号，必须写两个冒号。</li>
+<li>ele::placeholder –&gt; 是设置表单元素中文本框（搜索框、密码框。。。）中的占位符的样式，因为这个兼容性特别不好，所以各个浏览器的书写方式不一样，要特别注意一下。（不常用，但是某些特殊时候会有大用处），一般写成下面四种（火狐的写两种，一种是火狐低版本，一种是火狐高版本）<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ele::-webkit-input-placeholder&#123;&#125;</div><div class="line">ele:-ms-input-placeholder&#123;&#125;</div><div class="line">ele::-moz-placeholder&#123;&#125;</div><div class="line">ele:-moz-placeholder&#123;&#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>怎么样，这样我们在获取元素的时候会更准确的捕获到我们的元素本身了。</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/11/04/CSS3的选择器/" data-id="ciwf61tit0002rko04059p573" class="article-share-link">Share</a>
       
       
     </footer>
@@ -99,8 +178,8 @@
   
     <article id="post-HTML5" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/11/19/HTML5/" class="article-date">
-  <time datetime="2016-11-19T06:31:13.000Z" itemprop="datePublished">2016-11-19</time>
+    <a href="/2016/10/19/HTML5/" class="article-date">
+  <time datetime="2016-10-19T06:31:13.000Z" itemprop="datePublished">2016-10-19</time>
 </a>
     
   </div>
@@ -111,7 +190,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/19/HTML5/">HTML5</a>
+      <a class="article-title" href="/2016/10/19/HTML5/">HTML5</a>
     </h1>
   
 
@@ -133,7 +212,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/19/HTML5/" data-id="ciwf5w59i00074wo0tw7hu7x2" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/10/19/HTML5/" data-id="ciwf61tjo0008rko0n9vnbgi0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -145,8 +224,8 @@
   
     <article id="post-HTML5的语义化" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/11/19/HTML5的语义化/" class="article-date">
-  <time datetime="2016-11-19T05:44:49.000Z" itemprop="datePublished">2016-11-19</time>
+    <a href="/2016/10/19/HTML5的语义化/" class="article-date">
+  <time datetime="2016-10-19T05:44:49.000Z" itemprop="datePublished">2016-10-19</time>
 </a>
     
   </div>
@@ -157,7 +236,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/19/HTML5的语义化/">HTML5的语义化</a>
+      <a class="article-title" href="/2016/10/19/HTML5的语义化/">HTML5的语义化</a>
     </h1>
   
 
@@ -222,7 +301,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/19/HTML5的语义化/" data-id="ciwf5w5a9000e4wo0g7aetul1" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/10/19/HTML5的语义化/" data-id="ciwf61tk2000erko0p7xfu60o" class="article-share-link">Share</a>
       
       
     </footer>
@@ -234,8 +313,8 @@
   
     <article id="post-HTML5的兼容性" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/11/19/HTML5的兼容性/" class="article-date">
-  <time datetime="2016-11-19T05:29:31.000Z" itemprop="datePublished">2016-11-19</time>
+    <a href="/2016/10/19/HTML5的兼容性/" class="article-date">
+  <time datetime="2016-10-19T05:29:31.000Z" itemprop="datePublished">2016-10-19</time>
 </a>
     
   </div>
@@ -246,7 +325,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/19/HTML5的兼容性/">HTML5的兼容性</a>
+      <a class="article-title" href="/2016/10/19/HTML5的兼容性/">HTML5的兼容性</a>
     </h1>
   
 
@@ -312,7 +391,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/19/HTML5的兼容性/" data-id="ciwf5w5a2000c4wo0vneubfef" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/10/19/HTML5的兼容性/" data-id="ciwf61tju000brko0i9r3c3g7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -324,8 +403,8 @@
   
     <article id="post-HTML5的表单" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/11/19/HTML5的表单/" class="article-date">
-  <time datetime="2016-11-19T04:46:53.000Z" itemprop="datePublished">2016-11-19</time>
+    <a href="/2016/10/19/HTML5的表单/" class="article-date">
+  <time datetime="2016-10-19T04:46:53.000Z" itemprop="datePublished">2016-10-19</time>
 </a>
     
   </div>
@@ -336,7 +415,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/19/HTML5的表单/">HTML5的表单</a>
+      <a class="article-title" href="/2016/10/19/HTML5的表单/">HTML5的表单</a>
     </h1>
   
 
@@ -386,7 +465,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/19/HTML5的表单/" data-id="ciwf5w5ai000h4wo0haq63vdb" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/10/19/HTML5的表单/" data-id="ciwf61tjz000drko0ue9wivqu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -398,8 +477,8 @@
   
     <article id="post-HTML5的多媒体" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/11/19/HTML5的多媒体/" class="article-date">
-  <time datetime="2016-11-19T03:54:44.000Z" itemprop="datePublished">2016-11-19</time>
+    <a href="/2016/10/19/HTML5的多媒体/" class="article-date">
+  <time datetime="2016-10-19T03:54:44.000Z" itemprop="datePublished">2016-10-19</time>
 </a>
     
   </div>
@@ -410,7 +489,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/19/HTML5的多媒体/">HTML5的多媒体</a>
+      <a class="article-title" href="/2016/10/19/HTML5的多媒体/">HTML5的多媒体</a>
     </h1>
   
 
@@ -458,7 +537,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/19/HTML5的多媒体/" data-id="ciwf5w59o00084wo03wcg27h1" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/10/19/HTML5的多媒体/" data-id="ciwf61tjx000crko02mnwb27b" class="article-share-link">Share</a>
       
       
     </footer>
@@ -470,8 +549,8 @@
   
     <article id="post-HTML5的DOM扩展" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/11/19/HTML5的DOM扩展/" class="article-date">
-  <time datetime="2016-11-19T02:26:32.000Z" itemprop="datePublished">2016-11-19</time>
+    <a href="/2016/10/19/HTML5的DOM扩展/" class="article-date">
+  <time datetime="2016-10-19T02:26:32.000Z" itemprop="datePublished">2016-10-19</time>
 </a>
     
   </div>
@@ -482,7 +561,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/19/HTML5的DOM扩展/">HTML5的DOM扩展</a>
+      <a class="article-title" href="/2016/10/19/HTML5的DOM扩展/">HTML5的DOM扩展</a>
     </h1>
   
 
@@ -540,7 +619,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/19/HTML5的DOM扩展/" data-id="ciwf5w59w000a4wo08j4k1clk" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/10/19/HTML5的DOM扩展/" data-id="ciwf61tjs000arko0sp22pxnm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -552,8 +631,8 @@
   
     <article id="post-H5API-online" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/11/19/H5API-online/" class="article-date">
-  <time datetime="2016-11-18T16:00:00.000Z" itemprop="datePublished">2016-11-19</time>
+    <a href="/2016/10/19/H5API-online/" class="article-date">
+  <time datetime="2016-10-18T16:00:00.000Z" itemprop="datePublished">2016-10-19</time>
 </a>
     
   </div>
@@ -564,7 +643,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/19/H5API-online/">H5API-online</a>
+      <a class="article-title" href="/2016/10/19/H5API-online/">H5API-online</a>
     </h1>
   
 
@@ -593,7 +672,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/19/H5API-online/" data-id="ciwf5w59f00064wo0is884ucg" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/10/19/H5API-online/" data-id="ciwf61tjh0007rko0cnx2qhi3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -605,8 +684,8 @@
   
     <article id="post-H5API-fullScreen" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/11/18/H5API-fullScreen/" class="article-date">
-  <time datetime="2016-11-18T15:00:00.000Z" itemprop="datePublished">2016-11-18</time>
+    <a href="/2016/10/18/H5API-fullScreen/" class="article-date">
+  <time datetime="2016-10-18T15:00:00.000Z" itemprop="datePublished">2016-10-18</time>
 </a>
     
   </div>
@@ -617,7 +696,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/18/H5API-fullScreen/">H5API-fullScreen</a>
+      <a class="article-title" href="/2016/10/18/H5API-fullScreen/">H5API-fullScreen</a>
     </h1>
   
 
@@ -669,85 +748,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/18/H5API-fullScreen/" data-id="ciwf5w59200044wo0xxen02xk" class="article-share-link">Partager</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-H5API-fileReader" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/11/18/H5API-fileReader/" class="article-date">
-  <time datetime="2016-11-18T14:00:00.000Z" itemprop="datePublished">2016-11-18</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/18/H5API-fileReader/">H5API-fileReader</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="H5的新增API中的fileReader"><a href="#H5的新增API中的fileReader" class="headerlink" title="H5的新增API中的fileReader"></a>H5的新增API中的fileReader</h2><ul>
-<li>这个是H5中的一个文件读取功能（因为多用于图片上传，所以后面写的内容都假设为我上传的是一个图片）。我们都知道input标签中当type=”file”的时候，我们可以选择本地的文件进行上传，这个时候我们选择的本地文件在页面上只能看到一个文件名，而没有办法看到真是的图片在网页上呈现的效果，我们只能点击上传以后在网页上看到效果，因为我们网页上给图片留的位置和尺寸（宽高）与我们本地图片的尺寸不一样，所以会进行一些缩放，或者图片有一部分是看不到的，一旦出现这样的情况，我们就要从新上传一张图片，等到上传了新的一张图片的时候，我们的浏览器时不会把之前已经上传的那张图片删除的，所以这样会导致服务器的压力越来越大，所以我们用现在这个文件读取功能来解决问题。就是我们在本地选中好图片以后，在上传之前我们制造一个和网页上预留的图片位置和尺寸一样大小的盒子来承载这张图片，让我们先预览一下这张图片进入到网页以后是一个什么样的可是效果，这样我们可以在上传之前在本地就预览好要上传图片在网页中的效果，可以避免多次上传才可以满意的情况，从而给服务器减少负荷，也使得我们的用户体验更佳。</li>
-<li>之前的文字可能太多了，不太愿意看完，没有关系，那个只是告诉我们他的应用场景和使用原因而已，接下来我们就具体学习一下。</li>
-<li><p>第一点我们要知道的就是，我们在什么时候让图片显示出来，肯定是我们已经选中了某一张图片，点击确定以后，可是因为我们没有这样的对应的事件，所以我们根据没选中一次图片都会发生改变的机制来选择使用“onchange”事件。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;input type=&quot;file&quot; class=&quot;file&quot;&gt;</div><div class="line">&lt;img src=&quot;&quot; alt=&quot;&quot; class=&quot;img&quot;&gt; </div><div class="line">//-&gt;  这个img标签我们只需要添加我们需要的样式不需要给地址，后期我们预览的图片就放在这标签里面</div><div class="line">&lt;script&gt;</div><div class="line">    var file = document.getElementsByClassName(&quot;file&quot;)[0];</div><div class="line">    var oImg = document.getElementsByClassName(&quot;img&quot;)[0]</div><div class="line">    file.onchange = function () &#123;&#125;;</div><div class="line">&lt;/script&gt;</div><div class="line">//-&gt; ***  为了省事，下面的代码都是根据这一段代码来进行的</div></pre></td></tr></table></figure>
-</li>
-<li><p>我们就是通过这样来给file绑定一个改变事件来触发预浏览图片的。</p>
-</li>
-<li><p>file这个对象下有一个属性叫做“files”，只不过它的值是一个引用数据类型（对象）而不是一个基本数据类型，files这个对象里是我们需要的东西。而“files”这个属性所对应的值就是我们需要的“fileList”对象，它是一个类数组。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">file.files</div></pre></td></tr></table></figure>
-</li>
-<li><p>当我们打印file.files的时候我们会得到一个</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">FileList&#123;0:File,length:1&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>其实我们所得到的这个FileList对象就是存储我们图片信息的一个类数组。</p>
-</li>
-<li><p>之所以只有一项是因为我们现在写的这个input标签一次只能上传一个文件，当我们给他加上一个multipel属性以后它可以一次上传多个文件了,只不过每一个文件都叫做File</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">FileList&#123;0:File,1:File,2:File,3:File,length:1&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>这个FileList对象里的第0项是File，这个File中就是存储的我们选中的图片的具体信息</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">vat res = file.files[0];</div><div class="line">console.log(res);</div></pre></td></tr></table></figure>
-</li>
-<li><p>这个时候我们得到的res是一个对象，就是我们选中好的图片的具体信息，也就是刚才咱们提到过的那个File。</p>
-</li>
-<li>到这里我们就知道我们本地这个图片的具体信息了，下面要做的就是怎么把这个图片预览出来。</li>
-<li><p>我们把图片绑定到页面上做预浏览的时候就需要借助到一个JS的内置构造函数“FileReader”</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var reader = new FileReader();</div></pre></td></tr></table></figure>
-</li>
-<li><p>这个代码的意思是从“FileReader”这个构造函数中实例化出来一个实例“reader”（这个变量名随便写），这个reader可以使用“FileReader”这个构造函数上的所有方法（这个是后期面向对象要讲的，现在不用可以纠结，知道怎么用就好）</p>
-</li>
-<li><p>接下来我们要是用的就是“FileReader”的<strong>proto</strong>上的一个叫做“readAsDataURL()”的方法，因为“reader”是他的一个实例，所以我们可以直接用reader来调用。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">reader.readAsDataURL(res)</div><div class="line">//-&gt;  这里的res就是我们之前获得过的那个储存着选中图片具体信息的对象</div><div class="line">//-&gt;  这个方法就是在帮我们读取图片信息</div><div class="line">//-&gt;  注意“readAsDataURL()”这个方法的大小写别写错</div></pre></td></tr></table></figure>
-</li>
-<li><p>因为我们的代码是从上到下的执行，又因为读取需要一定的时间，所以这个时候我们需要用到一个“FileReader”上的onload事件，等到读取完成后再进行绑定，同样也是可以用reader调用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">reader.onload = function () &#123;</div><div class="line">    console.log(this.result)</div><div class="line">    //-&gt;  result是reader上的一个属性，他的值就是我们通过readAsDataURL()这个方法读取图片信息以后得到的内容</div><div class="line">    //-&gt;  他是把图片转换成了编码，这个结果我们看不懂，但是没有关系，我们只要直接把它赋值给页面上也好的img标签的src属性就好。</div><div class="line">    oImg.src = this.result;</div><div class="line">    //-&gt;我们看不懂的哪个编码，img的src可以看懂，所以我们直接给他就好了，这样我们就可以看到预览图片了</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-</li>
-<li><p>这个说的可能有点啰嗦，主要是为了理一下逻辑，下面上一段完整代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">//-&gt;  思路导航</div><div class="line">//-&gt;  1.获取input[type=file]和img标签备用</div><div class="line">//-&gt;  2.监听file的change事件进行读取和绑定</div><div class="line">//-&gt;  3.change事件触发后通过file.files获取我们选中图片的具体信息</div><div class="line">//-&gt;  4.实例化“FileReader”这个构造函数</div><div class="line">//-&gt;  5.使用readAsDataURL()方法来读取图片的具体信息，以编码格式返回</div><div class="line">//-&gt;  6.监听onload事件，确保readAsDataURL()方法读取图片完成后在进行绑定</div><div class="line">//-&gt;  7.onload事件触发以后把我们得到的result结果赋值给img的src就可以了</div><div class="line">&lt;input type=&quot;file&quot; class=&quot;file&quot;&gt;</div><div class="line">&lt;img src=&quot;&quot; alt=&quot;&quot; class=&quot;img&quot;&gt; </div><div class="line">&lt;script&gt;</div><div class="line">    var file = document.getElementsByClassName(&quot;file&quot;)[0];</div><div class="line">    var oImg = document.getElementsByClassName(&quot;img&quot;)[0];</div><div class="line">    file.onchange = function () &#123;</div><div class="line">        var res = this.files[0];</div><div class="line">        var reader = new FileReader();</div><div class="line">        reader.readAsDataURL();</div><div class="line">        reader.onload = function ()&#123;</div><div class="line">            oImg.sec = this.result;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-</li>
-<li><p>这样我们这个图片预浏览就完成了，逻辑不是很复杂，代码也比较简单。</p>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/18/H5API-fileReader/" data-id="ciwf5w58r00024wo0mg2h5vmq" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2016/10/18/H5API-fullScreen/" data-id="ciwf61tj20004rko0si9lcmxd" class="article-share-link">Share</a>
       
       
     </footer>
@@ -778,7 +779,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li></ul>
     </div>
   </div>
 
@@ -786,7 +787,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
@@ -795,19 +796,19 @@
           </li>
         
           <li>
-            <a href="/2016/11/19/HTML5/">HTML5</a>
+            <a href="/2016/11/04/CSS3的选择器/">CSS3的选择器</a>
           </li>
         
           <li>
-            <a href="/2016/11/19/HTML5的语义化/">HTML5的语义化</a>
+            <a href="/2016/10/19/HTML5/">HTML5</a>
           </li>
         
           <li>
-            <a href="/2016/11/19/HTML5的兼容性/">HTML5的兼容性</a>
+            <a href="/2016/10/19/HTML5的语义化/">HTML5的语义化</a>
           </li>
         
           <li>
-            <a href="/2016/11/19/HTML5的表单/">HTML5的表单</a>
+            <a href="/2016/10/19/HTML5的兼容性/">HTML5的兼容性</a>
           </li>
         
       </ul>
@@ -823,7 +824,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2016 John Doe<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>H5API-fileReader | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="H5的新增API中的fileReader
+这个是H5中的一个文件读取功能（因为多用于图片上传，所以后面写的内容都假设为我上传的是一个图片）。我们都知道input标签中当type=”file”的时候，我们可以选择本地的文件进行上传，这个时候我们选择的本地文件在页面上只能看到一个文件名，而没有办法看到真是的图片在网页上呈现的效果，我们只能点击上传以后在网页上看到效果，因为我们网页上给图片留的位置和尺寸">
+<meta property="og:type" content="article">
+<meta property="og:title" content="H5API-fileReader">
+<meta property="og:url" content="http://yoursite.com/2016/10/18/H5API-fileReader/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="H5的新增API中的fileReader
+这个是H5中的一个文件读取功能（因为多用于图片上传，所以后面写的内容都假设为我上传的是一个图片）。我们都知道input标签中当type=”file”的时候，我们可以选择本地的文件进行上传，这个时候我们选择的本地文件在页面上只能看到一个文件名，而没有办法看到真是的图片在网页上呈现的效果，我们只能点击上传以后在网页上看到效果，因为我们网页上给图片留的位置和尺寸">
+<meta property="og:updated_time" content="2016-12-07T16:44:36.607Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="H5API-fileReader">
+<meta name="twitter:description" content="H5的新增API中的fileReader
+这个是H5中的一个文件读取功能（因为多用于图片上传，所以后面写的内容都假设为我上传的是一个图片）。我们都知道input标签中当type=”file”的时候，我们可以选择本地的文件进行上传，这个时候我们选择的本地文件在页面上只能看到一个文件名，而没有办法看到真是的图片在网页上呈现的效果，我们只能点击上传以后在网页上看到效果，因为我们网页上给图片留的位置和尺寸">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-H5API-fileReader" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/10/18/H5API-fileReader/" class="article-date">
+  <time datetime="2016-10-18T14:00:00.000Z" itemprop="datePublished">2016-10-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      H5API-fileReader
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="H5的新增API中的fileReader"><a href="#H5的新增API中的fileReader" class="headerlink" title="H5的新增API中的fileReader"></a>H5的新增API中的fileReader</h2><ul>
+<li>这个是H5中的一个文件读取功能（因为多用于图片上传，所以后面写的内容都假设为我上传的是一个图片）。我们都知道input标签中当type=”file”的时候，我们可以选择本地的文件进行上传，这个时候我们选择的本地文件在页面上只能看到一个文件名，而没有办法看到真是的图片在网页上呈现的效果，我们只能点击上传以后在网页上看到效果，因为我们网页上给图片留的位置和尺寸（宽高）与我们本地图片的尺寸不一样，所以会进行一些缩放，或者图片有一部分是看不到的，一旦出现这样的情况，我们就要从新上传一张图片，等到上传了新的一张图片的时候，我们的浏览器时不会把之前已经上传的那张图片删除的，所以这样会导致服务器的压力越来越大，所以我们用现在这个文件读取功能来解决问题。就是我们在本地选中好图片以后，在上传之前我们制造一个和网页上预留的图片位置和尺寸一样大小的盒子来承载这张图片，让我们先预览一下这张图片进入到网页以后是一个什么样的可是效果，这样我们可以在上传之前在本地就预览好要上传图片在网页中的效果，可以避免多次上传才可以满意的情况，从而给服务器减少负荷，也使得我们的用户体验更佳。</li>
+<li>之前的文字可能太多了，不太愿意看完，没有关系，那个只是告诉我们他的应用场景和使用原因而已，接下来我们就具体学习一下。</li>
+<li><p>第一点我们要知道的就是，我们在什么时候让图片显示出来，肯定是我们已经选中了某一张图片，点击确定以后，可是因为我们没有这样的对应的事件，所以我们根据没选中一次图片都会发生改变的机制来选择使用“onchange”事件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;input type=&quot;file&quot; class=&quot;file&quot;&gt;</div><div class="line">&lt;img src=&quot;&quot; alt=&quot;&quot; class=&quot;img&quot;&gt; </div><div class="line">//-&gt;  这个img标签我们只需要添加我们需要的样式不需要给地址，后期我们预览的图片就放在这标签里面</div><div class="line">&lt;script&gt;</div><div class="line">    var file = document.getElementsByClassName(&quot;file&quot;)[0];</div><div class="line">    var oImg = document.getElementsByClassName(&quot;img&quot;)[0]</div><div class="line">    file.onchange = function () &#123;&#125;;</div><div class="line">&lt;/script&gt;</div><div class="line">//-&gt; ***  为了省事，下面的代码都是根据这一段代码来进行的</div></pre></td></tr></table></figure>
+</li>
+<li><p>我们就是通过这样来给file绑定一个改变事件来触发预浏览图片的。</p>
+</li>
+<li><p>file这个对象下有一个属性叫做“files”，只不过它的值是一个引用数据类型（对象）而不是一个基本数据类型，files这个对象里是我们需要的东西。而“files”这个属性所对应的值就是我们需要的“fileList”对象，它是一个类数组。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">file.files</div></pre></td></tr></table></figure>
+</li>
+<li><p>当我们打印file.files的时候我们会得到一个</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">FileList&#123;0:File,length:1&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>其实我们所得到的这个FileList对象就是存储我们图片信息的一个类数组。</p>
+</li>
+<li><p>之所以只有一项是因为我们现在写的这个input标签一次只能上传一个文件，当我们给他加上一个multipel属性以后它可以一次上传多个文件了,只不过每一个文件都叫做File</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">FileList&#123;0:File,1:File,2:File,3:File,length:1&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>这个FileList对象里的第0项是File，这个File中就是存储的我们选中的图片的具体信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">vat res = file.files[0];</div><div class="line">console.log(res);</div></pre></td></tr></table></figure>
+</li>
+<li><p>这个时候我们得到的res是一个对象，就是我们选中好的图片的具体信息，也就是刚才咱们提到过的那个File。</p>
+</li>
+<li>到这里我们就知道我们本地这个图片的具体信息了，下面要做的就是怎么把这个图片预览出来。</li>
+<li><p>我们把图片绑定到页面上做预浏览的时候就需要借助到一个JS的内置构造函数“FileReader”</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var reader = new FileReader();</div></pre></td></tr></table></figure>
+</li>
+<li><p>这个代码的意思是从“FileReader”这个构造函数中实例化出来一个实例“reader”（这个变量名随便写），这个reader可以使用“FileReader”这个构造函数上的所有方法（这个是后期面向对象要讲的，现在不用可以纠结，知道怎么用就好）</p>
+</li>
+<li><p>接下来我们要是用的就是“FileReader”的<strong>proto</strong>上的一个叫做“readAsDataURL()”的方法，因为“reader”是他的一个实例，所以我们可以直接用reader来调用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">reader.readAsDataURL(res)</div><div class="line">//-&gt;  这里的res就是我们之前获得过的那个储存着选中图片具体信息的对象</div><div class="line">//-&gt;  这个方法就是在帮我们读取图片信息</div><div class="line">//-&gt;  注意“readAsDataURL()”这个方法的大小写别写错</div></pre></td></tr></table></figure>
+</li>
+<li><p>因为我们的代码是从上到下的执行，又因为读取需要一定的时间，所以这个时候我们需要用到一个“FileReader”上的onload事件，等到读取完成后再进行绑定，同样也是可以用reader调用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">reader.onload = function () &#123;</div><div class="line">    console.log(this.result)</div><div class="line">    //-&gt;  result是reader上的一个属性，他的值就是我们通过readAsDataURL()这个方法读取图片信息以后得到的内容</div><div class="line">    //-&gt;  他是把图片转换成了编码，这个结果我们看不懂，但是没有关系，我们只要直接把它赋值给页面上也好的img标签的src属性就好。</div><div class="line">    oImg.src = this.result;</div><div class="line">    //-&gt;我们看不懂的哪个编码，img的src可以看懂，所以我们直接给他就好了，这样我们就可以看到预览图片了</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+</li>
+<li><p>这个说的可能有点啰嗦，主要是为了理一下逻辑，下面上一段完整代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">//-&gt;  思路导航</div><div class="line">//-&gt;  1.获取input[type=file]和img标签备用</div><div class="line">//-&gt;  2.监听file的change事件进行读取和绑定</div><div class="line">//-&gt;  3.change事件触发后通过file.files获取我们选中图片的具体信息</div><div class="line">//-&gt;  4.实例化“FileReader”这个构造函数</div><div class="line">//-&gt;  5.使用readAsDataURL()方法来读取图片的具体信息，以编码格式返回</div><div class="line">//-&gt;  6.监听onload事件，确保readAsDataURL()方法读取图片完成后在进行绑定</div><div class="line">//-&gt;  7.onload事件触发以后把我们得到的result结果赋值给img的src就可以了</div><div class="line">&lt;input type=&quot;file&quot; class=&quot;file&quot;&gt;</div><div class="line">&lt;img src=&quot;&quot; alt=&quot;&quot; class=&quot;img&quot;&gt; </div><div class="line">&lt;script&gt;</div><div class="line">    var file = document.getElementsByClassName(&quot;file&quot;)[0];</div><div class="line">    var oImg = document.getElementsByClassName(&quot;img&quot;)[0];</div><div class="line">    file.onchange = function () &#123;</div><div class="line">        var res = this.files[0];</div><div class="line">        var reader = new FileReader();</div><div class="line">        reader.readAsDataURL();</div><div class="line">        reader.onload = function ()&#123;</div><div class="line">            oImg.sec = this.result;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>这样我们这个图片预浏览就完成了，逻辑不是很复杂，代码也比较简单。</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/10/18/H5API-fileReader/" data-id="ciwf61tiy0003rko0li221anv" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/10/18/H5API-fullScreen/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          H5API-fullScreen
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/10/18/H5API-drag/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">H5API-drag</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/12/08/Hybrid App/">App</a>
+          </li>
+        
+          <li>
+            <a href="/2016/11/04/CSS3的选择器/">CSS3的选择器</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/19/HTML5/">HTML5</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/19/HTML5的语义化/">HTML5的语义化</a>
+          </li>
+        
+          <li>
+            <a href="/2016/10/19/HTML5的兼容性/">HTML5的兼容性</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
