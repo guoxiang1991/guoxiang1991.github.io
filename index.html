@@ -83,12 +83,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##快速了解Hybrid App开发模式</p>
-<ul>
+        <h2 id="快速了解Hybrid-App开发模式"><a href="#快速了解Hybrid-App开发模式" class="headerlink" title="快速了解Hybrid App开发模式"></a>快速了解Hybrid App开发模式</h2><ul>
 <li>Hybrid App（混合模式移动应用）是指介于web-app、native-app这两者之间的app，兼具“Native App良好用户交互体验的优势”和“Web App跨平台开发的优势”。</li>
 </ul>
-<p>###Native App</p>
-<ul>
+<h3 id="Native-App"><a href="#Native-App" class="headerlink" title="Native App"></a>Native App</h3><ul>
 <li>移动互联网刚开始兴起的时候，我们手机上的应用(App)都是通过Native App开发而成的；Native App的开发具备很多的优势：<ol>
 <li>开发出来的产品具备良好的用户体验，动画和运行的速度非常的流畅。</li>
 <li>能够对手机的内部软件或者硬件进行直接的操作，例如：可以调取用户的通讯论、读取用户的短信(当然需要用户同意)，可以调取用户的摄像头，调取手机的重力感应等<br>…</li>
@@ -102,8 +100,7 @@
 </ol>
 </li>
 </ul>
-<p>###Web App</p>
-<ul>
+<h3 id="Web-App"><a href="#Web-App" class="headerlink" title="Web App"></a>Web App</h3><ul>
 <li>而HTML5的出现让Web App露出曙光。HTML5基本上不需要考虑是IOS还是安卓，两个平台一套代码基本上都是支持的；更新版本只需要在自己的服务器上更新了即可，这样用户再次访问的时候看到的就已经是最新版本的了；不需要经过漫长审核…这些优势让开发者们大为心动，但是HTML5的本质是运行在浏览器中的页面(App是直接运行在操作系统中的)，由于浏览器的差异以及对一些特殊功能支持力度的不够，导致HTML5开发存在一些局限性问题：<ol>
 <li>开发出来的产品性能和运行速度没有App的好，用户体验不是很好。</li>
 <li>虽然安卓和IOS平台上的浏览器大部分都是webkit内核的，但是浏览器厂商为了自己的特殊化，移动设备上的浏览器兼容也不少，甚至一些兼容问题是无法解决的(例如:position:fixed的支持非常的不好)。</li>
@@ -112,26 +109,21 @@
 </ol>
 </li>
 </ul>
-<p>###Hybrid App</p>
-<ul>
+<h3 id="Hybrid-App"><a href="#Hybrid-App" class="headerlink" title="Hybrid App"></a>Hybrid App</h3><ul>
 <li>正是在这样是机缘巧合下，基于HTML5低成本跨平台开发优势又兼具Native App特质的Hybrid App技术杀入混战，并且很快吸引了众人的目光。Hybrid App是把Native App和Web App混合在一起的新兴模式（目前市场上的大部分App都是混合模式开发的）。利用各自的优势，去开发一款低成本、跨平台、更新快、性能好、功能丰富的App。</li>
 <li>Hybrid App按网页语言与程序语言的混合，通常分为三种类型：多View混合型，单View混合型，Web主体型。</li>
 </ul>
-<p>#####多View混合型(目前常用的)</p>
-<ul>
+<h5 id="多View混合型-目前常用的"><a href="#多View混合型-目前常用的" class="headerlink" title="多View混合型(目前常用的)"></a>多View混合型(目前常用的)</h5><ul>
 <li>即Native View和Web View独立展示，交替出现。2012年常见的Hybrid App是Native View与WebView交替的场景出现。这种应用混合逻辑相对简单。即在需要的时候，将WebView当成一个独立的View（Activity）运行起来，在WebView内完成相关的展示操作。这种移动应用主体通常是Native App，Web技术只是起到补充作用。开发难度和Native App基本相当。</li>
 </ul>
-<p>#####单View混合型</p>
-<ul>
+<h5 id="单View混合型"><a href="#单View混合型" class="headerlink" title="单View混合型"></a>单View混合型</h5><ul>
 <li>即在同一个View内，同时包括Native View和Web View。互相之间是覆盖（层叠）的关系。这种Hybrid App的开发成本较高，开发难度较大，但是体验较好。如百度搜索为代表的单View混合型移动应用，既可以实现充分的灵活性，又能实现较好的用户体验。</li>
 </ul>
-<p>#####Web主体型(目前比较新颖流行的方式)</p>
-<ul>
+<h5 id="Web主体型-目前比较新颖流行的方式"><a href="#Web主体型-目前比较新颖流行的方式" class="headerlink" title="Web主体型(目前比较新颖流行的方式)"></a>Web主体型(目前比较新颖流行的方式)</h5><ul>
 <li>即移动应用的主体是Web View，主要以网页语言编写，穿插Native功能的Hybrid App开发类型。这种类型开发的移动应用体验相对而言存在缺陷，但整体开发难度大幅降低，并且基本可以实现跨平台。通俗来说，就是App中的页面基本上都是H5完成的，我们使用一些技术框架封装一个App的壳子，框架中还提供一些操作系统级别功能的API供H5的调取，一般来说，都是由JS编写代码来完成App壳子搭建的，这样开发的App也就不会在使用JAVA或者Object-c了。</li>
 <li>目前市面上比较流行的框架有：React Native、phoneGap、appcan、APICloud、ionicframework、appMobi、WeX5…</li>
 </ul>
-<p>###接下来我们分享一下，关于多View混合型中的H5和Native App是如何的实现交互与通信的。</p>
-<ul>
+<h3 id="接下来我们分享一下，关于多View混合型中的H5和Native-App是如何的实现交互与通信的。"><a href="#接下来我们分享一下，关于多View混合型中的H5和Native-App是如何的实现交互与通信的。" class="headerlink" title="接下来我们分享一下，关于多View混合型中的H5和Native App是如何的实现交互与通信的。"></a>接下来我们分享一下，关于多View混合型中的H5和Native App是如何的实现交互与通信的。</h3><ul>
 <li>在这之前，我们首先需要知道，在多View混合型中，我们的HTML5页面主要运行在Native App提供的Web View中（你也可以把web view理解成为一个浏览器，因为他和浏览器基本上差不多）。但是我们知道H5是存在一些局限性的，比如我们想调取用户的摄像头拍照，这个H5解决不了，这样的话我们需要先用App把这个功能实现了，然后由H5在调取App的相关功能。这样就需要实现H5和App之间的通信交互。</li>
 </ul>
 <ol>
@@ -152,7 +144,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/12/06/Hybrid-App/" data-id="ciwf8ahfp000frco0db8xmv94" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/12/06/Hybrid-App/" data-id="ciwf8dx99000gj4o0lc4wjgmi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -184,8 +176,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##CSS3的选择器</p>
-<ul>
+        <h2 id="CSS3的选择器"><a href="#CSS3的选择器" class="headerlink" title="CSS3的选择器"></a>CSS3的选择器</h2><ul>
 <li>选择器，顾名思义，就是和我们以前的选择器一样，因为是CSS用的，所以也就是在CSS中帮助我们捕获到某一个元素，好给他添加一些我们需要的样式，之前我们有接触过class选择器、ID选择器、标签选择器等等，但是在CSS3中有给我们提供了大量的方法来让我们使用，让我们可以更准确，更简单，跟快捷的捕获到某一个元素，从而给它添加样式。</li>
 <li>CSS3中添加的选择器分三大类，属性选择器、伪类选择器和伪元素选择器。</li>
 <li>属性选择器（就是根据元素中的属性名和属性值来获取元素，不仅仅是class和ID，还可以根据比如“href”、“name”、“type”等一些属性来获取元素）<ol>
@@ -231,7 +222,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/11/04/CSS3的选择器/" data-id="ciwf8ahe20000rco0r3eo3ypk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/11/04/CSS3的选择器/" data-id="ciwf8dx750000j4o0kdurhc3z" class="article-share-link">Share</a>
       
       
     </footer>
@@ -277,7 +268,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/19/HTML5/" data-id="ciwf8ahf50009rco0qkx57ppf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/10/19/HTML5/" data-id="ciwf8dx8m0008j4o0di72qila" class="article-share-link">Share</a>
       
       
     </footer>
@@ -366,7 +357,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/19/HTML5的语义化/" data-id="ciwf8ahfm000erco03sipvvgk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/10/19/HTML5的语义化/" data-id="ciwf8dx94000ej4o0q1cz4bm3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -456,7 +447,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/19/HTML5的兼容性/" data-id="ciwf8ahf9000brco0bns8furq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/10/19/HTML5的兼容性/" data-id="ciwf8dx8u000bj4o0frzfcz7c" class="article-share-link">Share</a>
       
       
     </footer>
@@ -530,7 +521,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/19/HTML5的表单/" data-id="ciwf8ahfh000drco0aww0jpdv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/10/19/HTML5的表单/" data-id="ciwf8dx90000dj4o07zxjmf66" class="article-share-link">Share</a>
       
       
     </footer>
@@ -602,7 +593,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/19/HTML5的多媒体/" data-id="ciwf8ahfd000crco0zbrkky84" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/10/19/HTML5的多媒体/" data-id="ciwf8dx8x000cj4o0s5plbmi2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -684,7 +675,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/19/HTML5的DOM扩展/" data-id="ciwf8ahf7000arco0wgxxrnew" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/10/19/HTML5的DOM扩展/" data-id="ciwf8dx8q0009j4o0m8vmr9c5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -737,7 +728,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/19/H5API-online/" data-id="ciwf8ahf10007rco0kj4o1jfz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/10/19/H5API-online/" data-id="ciwf8dx8f0006j4o0cgwg9suy" class="article-share-link">Share</a>
       
       
     </footer>
@@ -813,7 +804,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/10/18/H5API-fullScreen/" data-id="ciwf8ahem0004rco0y1dzjdjx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/10/18/H5API-fullScreen/" data-id="ciwf8dx7s0003j4o0wibwbf7s" class="article-share-link">Share</a>
       
       
     </footer>
